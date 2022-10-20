@@ -49,6 +49,15 @@
                                                     <li><a href="{{route('product.create')}}" data-key="t-user-list"> Add Product</a></li>
                                                 </ul>
                                             </li>
+                                            <li>
+                                                <a href="javascript: void(0);" class="has-arrow">
+                                                    <span data-key="t-contacts">Boarding</span>
+                                                </a>
+                                                <ul class="sub-menu mm-collapse" aria-expanded="false">
+                                                    <li><a href="{{route('boarding.index')}}" data-key="t-user-grid"> List</a></li>
+                                                    <li><a href="{{route('boarding.create')}}" data-key="t-user-list"> Create</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
 

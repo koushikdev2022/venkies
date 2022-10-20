@@ -24,3 +24,4 @@ Route::resource('user',\App\Http\Controllers\UserController::class);
 Route::resource('retailer',\App\Http\Controllers\RetailerController::class);
 Route::resource('categorie',\App\Http\Controllers\CategorieController::class);
 Route::resource('product',\App\Http\Controllers\ProductController::class);
+Route::resource('boarding',\App\Http\Controllers\OnboardingController::class);
