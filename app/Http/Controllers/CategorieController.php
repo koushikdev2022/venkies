@@ -89,9 +89,9 @@ class CategorieController extends Controller
      * @param  \App\Models\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categorie $id)
+    public function update(Request $request, Categorie $categorie)
     {
-        $categories=Categorie::find($id);
+        $categories=Categorie::find($categorie->id);
 
         $categories->update(
             [
@@ -112,9 +112,9 @@ class CategorieController extends Controller
      * @param  \App\Models\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categorie $id)
+    public function destroy(Categorie $categorie)
     {
-       $categories=Categorie::find($id);
+       $categories=Categorie::find($categorie->id);
        $categories->delete();
        return redirect()->route('categorie.index')->with('success', 'deletion success');
 

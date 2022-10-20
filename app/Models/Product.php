@@ -15,8 +15,8 @@ class Product extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
-            ->width(368)
-            ->height(232)
-            ->sharpen(10);
+            ->width(184)
+            ->height(116)
+            ->sharpen(5);
     }
 }

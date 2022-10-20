@@ -21,17 +21,6 @@
                                             <span data-key="t-apps">Option</span>
                                         </a>
                                         <ul class="sub-menu mm-collapse" aria-expanded="false">
-                                            <li>
-                                                <a href="{{route('categorie.index')}}">
-                                                    <span data-key="t-calendar">Caegorie</span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="apps-chat.html">
-                                                    <span data-key="t-chat">Chat</span>
-                                                </a>
-                                            </li>
 
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
@@ -56,8 +45,8 @@
                                                     <span data-key="t-contacts">Products</span>
                                                 </a>
                                                 <ul class="sub-menu mm-collapse" aria-expanded="false">
-                                                    <li><a href="{{route('product.index')}}" data-key="t-user-grid">User Grid</a></li>
-                                                    <li><a href="{{route('product.create')}}" data-key="t-user-list">User List</a></li>
+                                                    <li><a href="{{route('product.index')}}" data-key="t-user-grid">Product List</a></li>
+                                                    <li><a href="{{route('product.create')}}" data-key="t-user-list"> Add Product</a></li>
                                                 </ul>
                                             </li>
                                         </ul>

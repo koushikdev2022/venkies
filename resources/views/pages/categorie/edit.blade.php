@@ -1,61 +1,54 @@
 @extends('layouts.master')
-@section('title','Edit Category')
+@section('title','Category Edit')
 @section('content')
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0 font-size-18">Category</h4>
 
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1><i class=" fa fa-users">&nbsp</i>Category</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Edit</li>
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Category</li>
                     </ol>
                 </div>
+
             </div>
         </div>
-    </section>
-
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <form action="{{ route('categorie.update',$categories->id)}}" enctype="multipart/form-data" method="post">
-                            @csrf @method('PUT')
-                            <div class="card-header">
-                                <h3 class="card-title">Create Category </h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <label>Category Name <span class="text-danger">*</span></label>
-                                        <input type="text" name="name" value="{{$categories['name']}}" class="form-control @error('name') is-invalid @enderror">
-                                        @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
-                                    </div>
-
-                                    {{--                                    <div class="col-sm-6">--}}
-                                    {{--                                        <label for="image">Image <span class="text-danger"></span> </label><br>--}}
-                                    {{--                                        <input type="file"  name="image" accept="image/*"  class="form-group">--}}
-                                    {{--                                    </div>--}}
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Category</h4>
+                    <p class="card-title-desc">Edit Category</p>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route( 'categorie.update',$categories->id) }}" method="post" enctype="multipart/form-data">
+                        @csrf @method('PUT')
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-4">
+                                    <label class="form-label" for="default-input">Name<span class="text-danger">*</span></label>
+                                    <input class="form-control" name="name" type="text" value="{{$categories->name}}" id="name" placeholder="Default input">
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <input type="submit" class="btn btn-primary" value="Update">
+                            <div class="col-sm-6">
+                                <div>
+                                    <label class="form-label" for="image">Image<span class="text-danger">*</span></label>
+                                    <input class="form-control" name="image" type="file" accept="image/*" value="{{$categories->image}}" id="image" placeholder="Please select Image">
+                                </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-primary w-md" value="Update">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
 
-    </section>
-
-
+    </div>
 @endsection

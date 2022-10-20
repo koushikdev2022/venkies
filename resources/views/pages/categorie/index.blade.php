@@ -1,8 +1,22 @@
 @extends('layouts.master')
-@section('title','Doctor List')
+@section('title','category Create')
 @section('content')
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0 font-size-18">Category</h4>
 
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">User</a></li>
+                        <li class="breadcrumb-item active">Category List</li>
+                    </ol>
+                </div>
 
+            </div>
+        </div>
+    </div>
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -20,26 +34,26 @@
                                 <thead>
                                 <tr>
                                     <th>Serial_No</th>
-                                    <th>Category Name</th>
-{{--                                    <th>Image</th>--}}
+                                    <th> Name</th>
+                                    <th>Image</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($categories as $key=>$category)
+                                @forelse($categories as $key=>$cat)
                                     <tr>
-                                        <td>{{intval($key)+1}}</td>
-                                        <td>{{$category->name}}</td>
+                                        <td>{{$key+1}}</td>
+                                        <td>{{$cat->name}}</td>
 
-                                        <td><img src="{{$category->image}}" alt=""></td>
+                                        <td><img src="{{$cat->image}}" alt=""></td>
                                         <td>
-                                            <form action="{{ route('categorie.destroy',$category->id) }}" method="Post">
+                                            <form action="{{ route('categorie.destroy',$cat->id) }}" method="Post">
                                                 @csrf
                                                 @method('DELETE')
 
-                                                    <a href="{{route('categorie.edit',$category->id)}}" class="btn btn-info">Edit</a>
+                                                <a href="{{route('categorie.edit',$cat->id)}}" class="btn btn-info">Edit</a>
 
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
 
                                             </form>
                                         </td>
@@ -55,9 +69,6 @@
                 </div>
             </div>
         </div>
-
     </section>
-
-
-
 @endsection
+
