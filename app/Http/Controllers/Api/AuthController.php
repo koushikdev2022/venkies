@@ -26,9 +26,6 @@ class AuthController extends Controller
         if (!hash::check($request->password, $user->password)) {
             return $this->ErrorResponse(400, 'You have entered wrong password');
         }
-        if($user->status== false){
-            return $this->ErrorResponse(400, 'Please verify you email before login');
-        }
         $user['token'] = 'Bearer ' . $user->createToken('auth_token')->plainTextToken;
         unset($user['created_at']);
         unset($user['updated_at']);
