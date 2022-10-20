@@ -13,7 +13,6 @@
                         <li class="breadcrumb-item active">User</li>
                     </ol>
                 </div>
-
             </div>
         </div>
     </div>
@@ -22,7 +21,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">User</h4>
-                    <p class="card-title-desc">Create User</p>
+                    <p class="card-title-desc">Edit User</p>
                 </div>
                 <div class="card-body">
                     <form action="{{ route( 'user.update',$users->id) }}" method="post" enctype="multipart/form-data">
