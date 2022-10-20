@@ -2,21 +2,7 @@
 @section('title','ON Boarding')
 @section('content')
 
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1><i class=" fa fa-users">&nbsp</i>ON Boarding</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">ON Boarding</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <section class="content">
         <div class="container-fluid">
@@ -27,8 +13,8 @@
                             <div class="col-sm-6">
                                 <h3 class="card-title">ON Boarding</h3>
                             </div>
-                            <div class="col-sm-6">
-                                <span class="card-title btn btn-primary float-right"><a href="{{route('boarding.create')}}" class=" text-white"><i class="fa fa-plus">&nbsp;</i>Add </a></span>
+                            <div class="col-sm-12">
+                                <span class="card-title btn btn-primary float-right "><a href="{{route('boarding.create')}}" class=" text-white "><i class="fa fa-plus">&nbsp;</i>Add </a></span>
                             </div>
                         </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Onboarding;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -31,5 +32,27 @@ class AuthController extends Controller
         unset($user['updated_at']);
         return $this->SuccessResponse(200, 'Login Successfully..', $user);
 
+    }
+    public function authentication(){
+        return $this->ErrorResponse(401,'authentication failed');
+    }
+
+    public function boarding(){
+        $banners= Onboarding::latest()->get();
+        if(!is_null($banners)){
+            $banners->map(function($listing){
+                $listing['image']= $listing->getFirstMediaUrl('boarding','thumb');
+                unset( $listing['media']);
+                unset( $listing['created_at']);
+                unset( $listing['updated_at']);
+
+            });
+        }
+
+        else{
+            return $this->SuccessResponse(200,"No data found",null);
+        }
+
+        return $this->SuccessResponse(200,"Data fetch Successfully",$banners);
     }
 }
