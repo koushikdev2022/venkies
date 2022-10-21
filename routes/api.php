@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('login',[\App\Http\Controllers\Api\AuthController::class,'login']);
+
 Route::get('authentication',[AuthController::class,'authentication'])->name('authentication');
 Route::middleware('auth:sanctum')->group( function () {
     Route::get('boarding',[\App\Http\Controllers\Api\AuthController::class,'boarding']);
     Route::post('register',[\App\Http\Controllers\Api\RetailerController::class,'retailer_register']);
 });
-
+Route::post('login',[AuthController::class,'login']);
