@@ -108,7 +108,6 @@ class UserController extends Controller
                'email'=>$request->email,
                'mobile'=>$request->mobile,
                'password'=>$request->password,
-
            ]
        );
         if($request->hasFile('image')){
