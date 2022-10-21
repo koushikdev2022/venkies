@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-   public function product_list()
+   public function product_list($id)
    {
-       $r=Product::all();
+       $r=Product::where('category_id',$id)->get();
        $r->map(function ($listing) {
            $listing['image'] = $listing->getFirstMediaUrl('product', 'thumb');
            unset($listing['media']);
            return $listing;
        });
-       return $this->SuccessResponse('200','product fetch Succesfully',$r);
+       return $this->SuccessResponse('200','product fetch Successfully',$r);
 
    }
 }
