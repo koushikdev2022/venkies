@@ -77,4 +77,9 @@ class RetailerController extends Controller
         return $this->SuccessResponse(200,'Retailer Updated successfully....!',$r);
 
     }
+    public function retailer_list(){
+        $r= Retailer::where('user_id',auth()->id())->get();
+        return $this->SuccessResponse(200,'Retailer fetch successfully ..!',$r);
+    }
+
 }
