@@ -28,7 +28,7 @@ Route::middleware('auth:sanctum')->group( function () {
 //    Route::post('category/create',[\App\Http\Controllers\Api\CategoryController::class,'create_category']);
     Route::get('list',[\App\Http\Controllers\Api\CategoryController::class,'list_category']);
     Route::get('retailer/list',[\App\Http\Controllers\Api\RetailerController::class,'retailer_list']);
-    Route::get('product/list',[\App\Http\Controllers\ProductController::class,'product_list']);
+    Route::get('product/list',[\App\Http\Controllers\Api\ProductController::class,'product_list']);
 });
 Route::post('login',[AuthController::class,'login']);
 
