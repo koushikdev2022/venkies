@@ -24,4 +24,4 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('boarding',[\App\Http\Controllers\Api\AuthController::class,'boarding']);
     Route::post('register',[\App\Http\Controllers\Api\RetailerController::class,'retailer_register']);
 });
-Route::post('retailer/login',[AuthController::class,'login']);
+Route::post('login',[AuthController::class,'login']);
