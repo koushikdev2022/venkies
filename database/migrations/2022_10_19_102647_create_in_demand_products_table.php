@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('in_demand_products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('product_name')->nullable();
             $table->string('source_of_information')->nullable();
             $table->string('market_rate')->nullable();
-            $table->string('market_value')->nullable();
+            $table->string('market_trend')->nullable();
             $table->string('note')->nullable();
             $table->timestamps();
         });

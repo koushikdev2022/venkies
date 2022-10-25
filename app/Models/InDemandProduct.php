@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class InDemandProduct extends Model
 {
-    protected $guarded=['id'];
     use HasFactory;
+    protected $guarded=['id'];
+
 }

@@ -10,7 +10,11 @@ class ProductController extends Controller
 {
    public function product_list($id)
    {
-       $r=Product::where('category_id',$id)->get();
+       if($id){
+           $r=Product::where('category_id',$id)->get();
+       }else{
+           $r=Product::latest()->get();
+       }
        $r->map(function ($listing) {
            $listing['image'] = $listing->getFirstMediaUrl('product', 'thumb');
            unset($listing['media']);

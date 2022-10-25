@@ -14,7 +14,8 @@ class InDemandProductController extends Controller
      */
     public function index()
     {
-        //
+       $indemands=InDemandProduct::all();
+       return view('pages.indemand.index', compact('indemands'));
     }
 
     /**
@@ -24,7 +25,7 @@ class InDemandProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.indemand.create');
     }
 
     /**
@@ -35,7 +36,24 @@ class InDemandProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request,[
+           'product_name'=>'required',
+           'source_of_information'=>'required',
+           'market_trend'=>'required',
+           'market_rate'=>'required',
+           'note'=>'required'
+       ]);
+      $indemands=InDemandProduct::create([
+          'product_name'=>$request->product_name,
+          'source_of_information'=>$request->source_of_information,
+          'market_rate'=>$request->market_rate,
+          'market_trend'=>$request->market_trend,
+          'note'=>$request->note,
+      ]);
+      if($indemands!==null)
+        { return redirect()->route('indemand.index')->with('success','data inserted suceesfully....');
+        }
+        return redirect()->route('indemand.index')->with('failure',' data insertion failed......!!');
     }
 
     /**
@@ -55,21 +73,25 @@ class InDemandProductController extends Controller
      * @param  \App\Models\InDemandProduct  $inDemandProduct
      * @return \Illuminate\Http\Response
      */
-    public function edit(InDemandProduct $inDemandProduct)
+    public function edit($id)
     {
-        //
+
+        $indemands=InDemandProduct::find($id);
+        return view('pages.indemand.edit',compact('indemands'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\InDemandProduct  $inDemandProduct
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, InDemandProduct $inDemandProduct)
+
+    public function update(Request $request ,$id)
     {
-        //
+        $indemands=InDemandProduct::find($id);
+        $indemands->update([
+            'product_name'=>$request->product_name,
+            'source_of_information'=>$request->source_of_information,
+            'market_rate'=>$request->market_rate,
+            'market_trend'=>$request->market_trend,
+            'note'=>$request->note,
+        ]);
+        return redirect()->route('indemand.index')->with('success','data updation successfull>.....!');
     }
 
     /**
@@ -78,8 +100,12 @@ class InDemandProductController extends Controller
      * @param  \App\Models\InDemandProduct  $inDemandProduct
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InDemandProduct $inDemandProduct)
+    public function destroy($id)
     {
-        //
+//        dd($inDemandProduct);
+        $indemands = InDemandProduct::find($id);
+
+        $indemands->delete();
+        return redirect()->route('indemand.index')->with('success', 'data deletion successfulll......');
     }
 }
