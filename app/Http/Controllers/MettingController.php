@@ -42,7 +42,7 @@ class MettingController extends Controller
     {
         $this->validate($request,[
             'user_id'=>'required',
-            'retailer'=>'required',
+            'retailer'=>'nullable',
             'date'=>'required',
             'time'=>'required',
             'note'=>'required'
@@ -79,11 +79,11 @@ class MettingController extends Controller
      * @param  \App\Models\Metting  $metting
      * @return \Illuminate\Http\Response
      */
-    public function edit(Metting $metting)
+    public function edit($id)
     {
         $users=User::all();
         $retailers=Retailer::all();
-        $meetings=Metting::find($metting->id);
+        $meetings=Metting::find($id);
         return view('pages.meeting.edit',compact('users','retailers','meetings'));
 
     }
@@ -95,9 +95,9 @@ class MettingController extends Controller
      * @param  \App\Models\Metting  $metting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Metting $metting)
+    public function update(Request $request, $id)
     {
-        $meetings=find($metting->id);
+        $meetings=Metting:: find($id);
         $meetings->update([
             'user_id'=>$request->user_id,
             'retailer'=>$request->retailer,
@@ -115,9 +115,9 @@ class MettingController extends Controller
      * @param  \App\Models\Metting  $metting
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Metting $metting)
+    public function destroy($id)
     {
-        $meetings=Metting::find($metting->id);
+        $meetings=Metting::find($id);
         $meetings->delete();
         return redirect()->route('meeting.index')->with('success','data deletion successfully....');
 

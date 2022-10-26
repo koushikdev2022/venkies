@@ -21,11 +21,11 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Attendance</h4>
-                    <p class="card-title-desc">Edit Attendance</p>
+                    <h4 class="card-title">Meeting</h4>
+                    <p class="card-title-desc">Edit Meeting</p>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route( 'attendance.update',$attendances->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route( 'meeting.update',$meetings->id) }}" method="post" enctype="multipart/form-data">
                         @csrf @method('PUT')
                         <div class="row">
                             <div class="col-sm-6">
@@ -34,7 +34,19 @@
                                     <select class="form-select" name="user_id" type="text" >
                                         <option value="">Select User</option>
                                         @forelse($users as $key=>$user)
-                                            <option value="{{$user->id}}" @if($attendances->user_id== $user->id) selected @endif>{{$user->name}}</option>
+                                            <option value="{{$user->id}}" @if($meetings->user_id== $user->id) selected @endif>{{$user->name}}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-4">
+                                    <label class="form-label" for="retailer">Retailer Name<span class="text-danger">*</span></label>
+                                    <select class="form-select" name="retailer" type="text" >
+                                        <option value="">Select Retailer</option>
+                                        @forelse($retailers as $key=>$retailer)
+                                            <option value="{{$retailer->id}}" @if($meetings->retailer== $retailer->id) selected @endif>{{$retailer->name}}</option>
                                         @empty
                                         @endforelse
                                     </select>
@@ -43,18 +55,25 @@
                             <div class="col-sm-6">
                                 <div class="mb-4">
                                     <label class="form-label" for="default-input">Date<span class="text-danger">*</span></label>
-                                    <input class="form-control" name="date" type="date" value="{{$attendances->date}}" id="date" placeholder="Default input">
+                                    <input class="form-control @error('date') is-invalid @enderror" name="date" type="date" value="{{$meetings->date}}" id="date" placeholder="Default input">
+                                @error('date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
-                                <div>
-                                    <label class="form-label" for="price">Attemdance<span class="text-danger">*</span></label>
-                                    <select name="attendance" id="attendance" class="form-select">
-                                        <option value="{{$attendances->attendance}}"></option>
-                                        <option value="Present">Present</option>
-                                        <option value="Absent">Absent</option>
-                                    </select>
+                                <div class="mb-4">
+                                    <label for="time" class="form-label">Time<span class="text-danger">*</span></label>
+                                    <input type="time" class="form-control" value="{{$meetings->time}}" name="time" id="time">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-4">
+                                    <label for="note" class="form-label">Note<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" value="{{$meetings->note}}" name="note" id="note">
                                 </div>
                             </div>
 

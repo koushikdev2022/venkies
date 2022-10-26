@@ -41,8 +41,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-4">
-                                    <label class="form-label" for="form-sm-input">User Name<span class="text-danger">*</span></label>
-                                    <select class="form-select" name="user_id" type="text" >
+                                    <label class="form-label" for="form-sm-input">Retailer Name<span class="text-danger">*</span></label>
+                                    <select class="form-select" name="retailer" type="text" >
                                         <option value="">Select User</option>
                                         @forelse($retailers as $key=>$retailer)
                                             <option value="{{$retailer->id}}">{{$retailer->name}}</option>
@@ -69,16 +69,13 @@
                                     <input type="text" class="form-control" name="note" id="note">
                                 </div>
                             </div>
-
                             <div class=" mt-4">
                                 <button type="submit" class="btn btn-primary w-md">Submit</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
         </div>
-
     </div>
 @endsection

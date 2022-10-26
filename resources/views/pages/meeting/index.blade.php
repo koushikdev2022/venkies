@@ -40,7 +40,7 @@
                                 <tr>
                                     <th>Serial_No</th>
                                     <th>User Name</th>
-                                    <th>User Name</th>
+                                    <th>Retailer Name</th>
                                     <th> Date </th>
                                     <th> Time </th>
                                     <th> Note</th>

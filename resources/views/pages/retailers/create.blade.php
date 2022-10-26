@@ -11,7 +11,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Edit</li>
+                        <li class="breadcrumb-item active">Retailer</li>
                     </ol>
                 </div>
             </div>
@@ -23,8 +23,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <form action="{{ route('retailer.update',$retailers->id)}}" enctype="multipart/form-data" method="post">
-                            @csrf @method('PUT')
+                        <form action="{{ route('retailer.store')}}" enctype="multipart/form-data" method="post">
+                            @csrf
                             <div class="card-header">
                                 <h3 class="card-title">Create Retailers </h3>
                             </div>

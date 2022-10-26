@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('mobile')->nullable();
             $table->tinyInteger('role')->default(2);
+            $table->boolean('status')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
