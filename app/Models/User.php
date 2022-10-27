@@ -26,7 +26,8 @@ class User extends Authenticatable implements HasMedia
         'password',
         'mobile',
         'role',
-        'status'
+        'status',
+        'mobile1'
     ];
 
     /**

@@ -40,6 +40,7 @@
                                     <th>Email</th>
                                     <th>Mobile</th>
                                     <th>Image</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -52,12 +53,14 @@
                                         <td>{{$user->mobile}}</td>
                                         <td><img src="{{$user->image}}" alt=""></td>
                                         <td>
+                                            <input type="checkbox" id="switch{{ $key+1}}" switch="none" checked=""/>
+                                            <label for="switch{{$key+1}}" data-on-label="On" data-off-label="Off"></label>
+                                        </td>
+                                        <td>
                                             <form action="{{ route('user.destroy',$user->id) }}" method="Post">
                                                 @csrf
                                                 @method('DELETE')
-
                                                 <a href="{{route('user.edit',$user->id)}}" class="btn btn-info">Edit</a>
-
                                                 <button type="submit" class="btn btn-danger">Delete</button>
 
                                             </form>
@@ -73,6 +76,24 @@
                     </div>
                 </div>
             </div>
+    <script>
+        $(function() {
+            $('.toggle-class').change(function() {
+                var status = $(this).prop('checked') == true ? 1 : 0;
+                var product_id = $(this).data('id');
+                $.ajax({
+
+                    type: "GET",
+                    dataType: "json",
+                    url: '/status/update',
+                    data: {'status': status, 'product_id': product_id},
+                    success: function(data){
+                        console.log(data.success)
+                    }
+                });
+            })
+        });
+    </script>
 {{--        </div>--}}
 {{--    </section>--}}
 @endsection

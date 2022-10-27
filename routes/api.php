@@ -31,6 +31,10 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('product/list/{id?}',[\App\Http\Controllers\Api\ProductController::class,'product_list']);
     Route::get('indemand/list',[\App\Http\Controllers\Api\InDemandController::class,'indemand_list']);
     Route::post('indemand/add',[\App\Http\Controllers\Api\InDemandController::class,'add_product']);
+    Route::post('in-demand/update/{id}',[\App\Http\Controllers\Api\InDemandController::class,'update_indmand']);
+    Route::get('meeting/list',[\App\Http\Controllers\Api\MeetingController::class,'meeting_list']);
+    Route::post('logout',[AuthController::class,'logout']);
+    Route::post('profile/update',[AuthController::class,'profile_update']);
 });
 Route::post('login',[AuthController::class,'login']);
 

@@ -31,7 +31,6 @@ class AuthController extends Controller
         unset($user['created_at']);
         unset($user['updated_at']);
         return $this->SuccessResponse(200, 'Login Successfully..', $user);
-
     }
     public function authentication(){
         return $this->ErrorResponse(401,'authentication failed');
@@ -54,5 +53,29 @@ class AuthController extends Controller
         }
 
         return $this->SuccessResponse(200,"Data fetch Successfully",$banners);
+    }
+
+    public function logout()
+    {
+        auth()->user()->tokens()->delete();
+        return $this->SuccessResponse(200, 'You have successfully logged out');
+    }
+
+    public function profile_update(Request $request){
+        $user= User::find(auth()->id());
+       $result= $user->update([
+            'name'=>$request->name ?? $user->name,
+            'email'=>$request->email?? $user->email,
+            'mobile'=>$request->mobile ?? $user->mobile,
+            'mobile1'=>$request->mobile1?? $user->mobile1
+        ]);
+        if($request->hasFile('image')){
+            $user->clearCollection('profile');
+            $user->addMedia($request->image)->toMediaCollection('profile');
+        }
+        if(!$result){
+            return $this->ErrorResponse(400,"Something went wrong ...!");
+        }
+        return $this->SuccessResponse(200,'Data updated created successfully ...!', $result);
     }
 }

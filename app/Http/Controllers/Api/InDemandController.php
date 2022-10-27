@@ -39,4 +39,18 @@ class InDemandController extends Controller
         return $this->SuccessResponse(200,'In-demand Product created successfully ...!', $result);
 
     }
+    public function update_indmand(Request $request,$id){
+        $demand= InDemandProduct::find($id);
+       $result= $demand->update([
+            'product_name'=>$request->product_name??$demand->product_name,
+            'source_of_information'=>$request->source_of_information?? $demand->source_of_information,
+            'market_rate'=>$request->market_rate?? $demand->market_rate,
+            'market_trend'=>$request->market_trend ?? $demand->market_trend,
+            'note'=>$request->note ?? $demand->note,
+        ]);
+        if(!$result){
+            return $this->ErrorResponse(400,"Something went wrong ...!");
+        }
+        return $this->SuccessResponse(200,'Data updated created successfully ...!', $result);
+    }
 }
