@@ -62,7 +62,6 @@
                                                 @method('DELETE')
                                                 <a href="{{route('user.edit',$user->id)}}" class="btn btn-info">Edit</a>
                                                 <button type="submit" class="btn btn-danger">Delete</button>
-
                                             </form>
                                         </td>
                                     </tr>
@@ -82,11 +81,10 @@
                 var status = $(this).prop('checked') == true ? 1 : 0;
                 var product_id = $(this).data('id');
                 $.ajax({
-
                     type: "GET",
                     dataType: "json",
                     url: '/status/update',
-                    data: {'status': status, 'product_id': product_id},
+                    data: {'status': status, 'user_id': user_id},
                     success: function(data){
                         console.log(data.success)
                     }

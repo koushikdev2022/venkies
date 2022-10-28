@@ -14,7 +14,8 @@ class RetailerController extends Controller
      */
     public function index()
     {
-        //
+        $retailers=Retailer::all();
+        return view('pages.retailers.index',compact('retailers'));
     }
 
     /**

@@ -64,12 +64,10 @@
                                                 <a href="{{route('product.edit',$user->id)}}" class="btn btn-info justify-content-center">Edit</a>
 
                                                 <button type="submit" class="btn btn-danger justify-content-center">Delete</button>
-
                                             </form>
                                         </td>
                                     </tr>
                                 @empty
-
                                 @endforelse
                                 </tbody>
 
