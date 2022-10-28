@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Metting extends Model
 {
-    protected $guarded=['id'];
     use HasFactory;
+    protected $guarded=['id'];
+
+    public function retailer(){
+       return $this->belongsTo(Retailer::class ,'retailer');
+}
+    public function  user(){
+            return $this->belongsTo(User::class,'user_id');
+    }
+
 }

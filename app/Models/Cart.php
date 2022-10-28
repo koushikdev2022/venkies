@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    protected $guarded=['id'];
     use HasFactory;
+    protected $guarded=['id'];
+
 }

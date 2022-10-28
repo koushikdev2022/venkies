@@ -56,4 +56,8 @@ class User extends Authenticatable implements HasMedia
             ->height(232)
             ->sharpen(10);
     }
+
+    public function meeting(){
+        return $this->hasOne(Metting::class,'user_id');
+    }
 }

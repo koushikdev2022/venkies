@@ -87,11 +87,11 @@
                                             </li>
                                             <li>
                                                 <a href="javascript: void(0);" class="has-arrow">
-                                                    <span data-key="t-contacts">Meeting</span>
+                                                    <span data-key="t-contacts">Retailers</span>
                                                 </a>
                                                 <ul class="sub-menu mm-collapse" aria-expanded="false">
                                                     <li><a href="{{route('retailer.index')}}" data-key="t-user-grid"> List</a></li>
-                                                    <li><a href="{{route('retailer.create')}}" data-key="t-user-list"> Create</a></li>
+{{--                                                    <li><a href="{{route('retailer.create')}}" data-key="t-user-list"> Create</a></li>--}}
                                                 </ul>
                                             </li>
 

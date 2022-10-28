@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Retailer extends Model
 {
-    protected $guarded=['id'];
     use HasFactory;
+    protected $guarded=['id'];
+
+
+    public function meeting(){
+        return $this->hasOne(Metting::class,'retailer');
+
+    }
 }

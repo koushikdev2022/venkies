@@ -9,7 +9,14 @@ use Illuminate\Http\Request;
 class MeetingController extends Controller
 {
     public function meeting_list(){
-        $meeting= Metting::where('user_id',auth()->id())->latest()->get();
+        $meeting= Metting::where('user_id',auth()->id())->latest()->get()
+        ->map(function($listing){
+            $listing->executive_name = $listing->user->name;
+            $listing->retailer_name = $listing->retailer->name ?? '';
+            unset($listing['user']);
+            unset($listing['retailer']);
+            return $listing;
+        });
         return $this->SuccessResponse(200,'Meetings fetch successfully',$meeting);
     }
 }
