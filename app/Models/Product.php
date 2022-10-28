@@ -19,4 +19,9 @@ class Product extends Model implements HasMedia
             ->height(116)
             ->sharpen(5);
     }
+
+    public function product(){
+        return $this->hasMany(Cart::class,'product');
+    }
+
 }
