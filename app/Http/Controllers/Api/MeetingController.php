@@ -19,4 +19,13 @@ class MeetingController extends Controller
         });
         return $this->SuccessResponse(200,'Meetings fetch successfully',$meeting);
     }
+    public function meeting_details($id){
+        $meeting=Metting::find($id);
+        $meeting->executive_name = $meeting->user->name;
+
+        $meeting->retailer_name = $meeting->retailer->name ?? '';
+        unset($meeting['user']);
+        unset($meeting['retailer']);
+        return $this->SuccessResponse(200,'Meetings fetch successfully',$meeting);
+    }
 }

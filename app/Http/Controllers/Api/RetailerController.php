@@ -81,5 +81,14 @@ class RetailerController extends Controller
         $r= Retailer::where('user_id',auth()->id())->get();
         return $this->SuccessResponse(200,'Retailer fetch successfully ..!',$r);
     }
+    public function retailer_find(Request $request){
+        $r= Retailer::find($request->id);
+        if($r!==null)
+        {
+            return $this->SuccessResponse(200,'Retailer fetch successfully ..!',$r);
+        }
+        return $this->ErrorResponse(400,"Retailer not Found with this id!");
+
+    }
 
 }

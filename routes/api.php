@@ -28,11 +28,13 @@ Route::middleware('auth:sanctum')->group( function () {
 //    Route::post('category/create',[\App\Http\Controllers\Api\CategoryController::class,'create_category']);
     Route::get('list',[\App\Http\Controllers\Api\CategoryController::class,'list_category']);
     Route::get('retailer/list',[\App\Http\Controllers\Api\RetailerController::class,'retailer_list']);
-    Route::get('product/list/{id?}',[\App\Http\Controllers\Api\ProductController::class,'product_list']);
+    Route::get('retailer/find/{id}',[\App\Http\Controllers\Api\RetailerController::class,'retailer_find']);
+    Route::get('product/list/{id}',[\App\Http\Controllers\Api\ProductController::class,'product_list']);
     Route::get('indemand/list',[\App\Http\Controllers\Api\InDemandController::class,'indemand_list']);
     Route::post('indemand/add',[\App\Http\Controllers\Api\InDemandController::class,'add_product']);
     Route::post('in-demand/update/{id}',[\App\Http\Controllers\Api\InDemandController::class,'update_indmand']);
     Route::get('meeting/list',[\App\Http\Controllers\Api\MeetingController::class,'meeting_list']);
+    Route::get('meeting/list/{id}',[\App\Http\Controllers\Api\MeetingController::class,'meeting_details']);
     Route::get('cart/list',[\App\Http\Controllers\Api\CartController::class,'cart_list']);
     Route::post('cart/add',[\App\Http\Controllers\Api\CartController::class,'cart_add']);
     Route::post('logout',[AuthController::class,'logout']);
