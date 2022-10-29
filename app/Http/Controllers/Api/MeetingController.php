@@ -9,12 +9,8 @@ use Illuminate\Http\Request;
 class MeetingController extends Controller
 {
     public function meeting_list(){
-        $meeting= Metting::with('retailer')->where('user_id',auth()->id())->latest()->get()
-        ->map(function($listing){
-            $listing->executive_name = $listing->user->name??'';
-            $listing->retailer_name = $listing->retailer->name ?? '';
-            return $listing;
-        });
+        $meeting= Metting::with('retailer','user')->where('user_id',auth()->id())->latest()->get();
+
         return $this->SuccessResponse(200,'Meetings fetch successfully',$meeting);
     }
     public function meeting_details($id){
