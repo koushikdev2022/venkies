@@ -12,7 +12,7 @@ class Retailer extends Model
 
 
     public function meeting(){
-        return $this->hasOne(Metting::class,'retailer');
+        return $this->hasMany(Metting::class,'retailer');
 
     }
 }
