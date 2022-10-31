@@ -16,9 +16,9 @@ class MeetingController extends Controller
     public function meeting_details($id){
         $meeting=Metting::find($id);
         $meeting->executive_name = $meeting->user->name;
-        $meeting->retailer_name = $meeting->retailer->name ?? '';
+        $meeting->retailer_name = $meeting->get_retailer->name ?? '';
         unset($meeting['user']);
-        unset($meeting['retailer']);
+        unset($meeting['get_retailer']);
         return $this->SuccessResponse(200,'Meetings fetch successfully',$meeting);
     }
     public function today_meeting(){
