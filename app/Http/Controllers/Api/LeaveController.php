@@ -37,19 +37,19 @@ class LeaveController extends Controller
 
    }
 
-//   public function update_leave(Request $request,$id){
-//       $user=Leave::find($id);
-//        $result=$user->update([
-//           'type'=>$request->type?? $user->type,
-//           'cause'=>$request->cause??$user->cause,
-//            'from'=>date('d-m-Y',strtotime($request->from)),
-//            'to'=>date('d-m-Y',strtotime($request->to)),
-//       ]);
-//        if ($result){
-//            return $this->SuccessResponse('200', 'Leave Updated Successfully', $user);
-//        }
-//       return $this->ErrorResponse('400','Something Went Wrong');
-//   }
+   public function update_leave(Request $request,$id){
+       $user=Leave::find($id);
+        $result=$user->update([
+           'type'=>$request->type?? $user->type,
+           'cause'=>$request->cause??$user->cause,
+            'from'=>date('d-m-Y',strtotime($request->from)),
+            'to'=>date('d-m-Y',strtotime($request->to)),
+       ]);
+        if ($result){
+            return $this->SuccessResponse('200', 'Leave Updated Successfully', $user);
+        }
+       return $this->ErrorResponse('400','Something Went Wrong');
+   }
 
    public function list_leave(){
        $list=Leave::where('user_id',auth()->id())->latest()->get();
