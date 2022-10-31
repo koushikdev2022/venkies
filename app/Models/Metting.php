@@ -10,9 +10,9 @@ class Metting extends Model
     use HasFactory;
     protected $guarded=['id'];
 
-    public function retailer(){
+    public function get_retailer(){
        return $this->belongsTo(Retailer::class ,'retailer');
-}
+    }
     public function  user(){
             return $this->belongsTo(User::class,'user_id');
     }

@@ -51,7 +51,7 @@
                                     <tr>
                                         <td>{{$key+1}}</td>
                                         <td>{{$meeting->user_name}}</td>
-                                        <td>{{$meeting->retailer_name}}</td>
+                                        <td>{{$meeting->get_retailer->name}}</td>
                                         <td>{{$meeting->date}}</td>
                                         <td>{{$meeting->time}}</td>
                                         <td>{{$meeting->note}}</td>
