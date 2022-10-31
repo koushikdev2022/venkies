@@ -38,6 +38,7 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('today/meetinglist',[\App\Http\Controllers\Api\MeetingController::class,'today_meeting']);
     Route::get('cart/list',[\App\Http\Controllers\Api\CartController::class,'cart_list']);
     Route::post('cart/add',[\App\Http\Controllers\Api\CartController::class,'cart_add']);
+    Route::post('place/order',[\App\Http\Controllers\Api\CartController::class,'place_order']);
     Route::post('logout',[AuthController::class,'logout']);
     Route::post('profile/update',[AuthController::class,'profile_update']);
     Route::get('leave/list',[\App\Http\Controllers\Api\LeaveController::class,'list_leave']);

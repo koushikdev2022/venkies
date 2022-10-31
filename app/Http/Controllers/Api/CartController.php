@@ -42,4 +42,20 @@ class CartController extends Controller
         $list = Cart::whereDate('date', Carbon::today())->get()->all();
         return $this->SuccessResponse('200','data fetch successfully',$list);
     }
+
+    public function place_order(Request $request)
+    {
+        $validate=   Validator::make($request->all(),[
+            'items'=>'required'
+        ]);
+        foreach ($request['items'] as $item)
+        {
+            Cart::find($item->id)->update(['status'=> true]);
+        }
+        if($validate->fails()){
+            return $this->ErrorResponse(400,$validate->messages());
+        }
+
+     return $this->SuccessResponse(200,'Order place successfully');
+    }
 }
