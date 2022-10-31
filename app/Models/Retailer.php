@@ -11,7 +11,7 @@ class Retailer extends Model
     protected $guarded=['id'];
 
 
-    public function retailer(){
+    public function meeting(){
         return $this->hasOne(Metting::class,'retailer');
 
     }
