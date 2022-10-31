@@ -38,8 +38,8 @@ class CartController extends Controller
         $r= Cart::with('product.media')->select("*")->where('user_id',auth()->id())->groupBy('retailer')->get();
         return $this->SuccessResponse(200,'Cart fetch successfully ..!',$r);
     }
-    public function today_meeting(){
-        $list = Cart::whereDate('date', Carbon::today())->get()->all();
+    public function order_details(){
+        $list = Cart::where(['user_id'=>auth()->id(),'status'=>true])->get();
         return $this->SuccessResponse('200','data fetch successfully',$list);
     }
 
