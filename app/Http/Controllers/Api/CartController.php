@@ -31,8 +31,8 @@ class CartController extends Controller
                 'price'=>$value['price'],
             ]);
         }
-        $carts= Cart::where('user_id',auth()->id())->groupBy('retailer')->get();
-        return $this->SuccessResponse(200,'Cart created successfully ...!', $carts);
+
+        return $this->SuccessResponse(200,'Cart created successfully ...!');
     }
     public function cart_list(){
         $r= Cart::with('product.media')->select("*")->where('user_id',auth()->id())->groupBy('retailer')->get();
