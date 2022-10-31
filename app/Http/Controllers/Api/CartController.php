@@ -48,13 +48,14 @@ class CartController extends Controller
         $validate=   Validator::make($request->all(),[
             'items'=>'required'
         ]);
+        if($validate->fails()){
+            return $this->ErrorResponse(400,$validate->messages());
+        }
         foreach ($request['items'] as $item)
         {
             Cart::find($item->id)->update(['status'=> true]);
         }
-        if($validate->fails()){
-            return $this->ErrorResponse(400,$validate->messages());
-        }
+
 
      return $this->SuccessResponse(200,'Order place successfully');
     }
