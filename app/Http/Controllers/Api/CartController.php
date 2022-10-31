@@ -31,7 +31,6 @@ class CartController extends Controller
                 'price'=>$value['price'],
             ]);
         }
-
         return $this->SuccessResponse(200,'Cart created successfully ...!');
     }
     public function cart_list(){
@@ -42,8 +41,13 @@ class CartController extends Controller
         });
         return $this->SuccessResponse(200,'Cart fetch successfully ..!',$r);
     }
-    public function order_details(){
-        $list = Cart::where(['user_id'=>auth()->id(),'status'=>true])->get();
+
+    public function order_details($id){
+        $list = Cart::with('product.media')->where(['user_id'=>auth()->id(),'retailer'=>$id])->get()->map(function($rel){
+            $rel->retailer_name= $rel->get_retailer->name??'';
+            unset($rel['get_retailer']);
+            return $rel;
+        });
         return $this->SuccessResponse('200','data fetch successfully',$list);
     }
 
