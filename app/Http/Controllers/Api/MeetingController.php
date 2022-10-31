@@ -10,7 +10,7 @@ use Illuminate\Support\Carbon;
 class MeetingController extends Controller
 {
     public function meeting_list(){
-        $meeting= Metting::with('retailer','user')->where('user_id',auth()->id())->latest()->get();
+        $meeting= Metting::with('get_retailer','user')->where('user_id',auth()->id())->latest()->get();
         return $this->SuccessResponse(200,'Meetings fetch successfully',$meeting);
     }
     public function meeting_details($id){
