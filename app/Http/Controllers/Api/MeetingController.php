@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Metting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class MeetingController extends Controller
 {
@@ -21,5 +22,9 @@ class MeetingController extends Controller
         unset($meeting['user']);
         unset($meeting['retailer']);
         return $this->SuccessResponse(200,'Meetings fetch successfully',$meeting);
+    }
+    public function today_meeting(){
+       $list = Metting::where('user_id',auth()->id())->whereDate('date', Carbon::today())->get()->all();
+       return $this->SuccessResponse('200','data fetch successfully',$list);
     }
 }

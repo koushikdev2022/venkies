@@ -80,7 +80,7 @@ class RetailerController extends Controller
 
     }
     public function retailer_list(){
-        $r= Retailer::where('user_id',auth()->id())->get();
+        $r= Retailer::where('user_id',auth()->id())->latest()->get();
         return $this->SuccessResponse(200,'Retailer fetch successfully ..!',$r);
     }
     public function retailer_find(Request $request){

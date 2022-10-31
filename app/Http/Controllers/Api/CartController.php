@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Metting;
 use App\Models\Retailer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -35,5 +37,9 @@ class CartController extends Controller
     public function cart_list(){
         $r= Cart::with('product.media')->select("*")->where('user_id',auth()->id())->groupBy('retailer')->get();
         return $this->SuccessResponse(200,'Cart fetch successfully ..!',$r);
+    }
+    public function today_meeting(){
+        $list = Cart::whereDate('date', Carbon::today())->get()->all();
+        return $this->SuccessResponse('200','data fetch successfully',$list);
     }
 }
