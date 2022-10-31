@@ -37,6 +37,7 @@ class CartController extends Controller
     public function cart_list(){
         $r= Cart::distinct()->with('product.media')->where('user_id',auth()->id())->get()->map(function($rel){
             $rel->retailer_name= $rel->get_retailer->name??'';
+            unset($rel['get_retailer']);
             return $rel;
         });
         return $this->SuccessResponse(200,'Cart fetch successfully ..!',$r);
