@@ -51,7 +51,7 @@
                                 @forelse($products as $key=>$user)
                                     <tr>
                                         <td>{{$key+1}}</td>
-                                        <td>{{$user->category_id}}</td>
+                                        <td>{{$user->category->name}}</td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->price}}</td>
                                         <td>{{$user->description}}</td>

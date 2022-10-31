@@ -23,5 +23,9 @@ class Product extends Model implements HasMedia
     public function product(){
         return $this->hasMany(Cart::class,'product');
     }
+    public function  category(){
+        return $this->belongsTo(Categorie::class,'category_id');
+    }
+
 
 }

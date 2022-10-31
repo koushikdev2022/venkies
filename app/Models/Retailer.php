@@ -11,8 +11,8 @@ class Retailer extends Model
     protected $guarded=['id'];
 
 
-    public function meeting(){
-        return $this->hasMany(Metting::class,'retailer');
+    public function retailer(){
+        return $this->hasOne(Metting::class,'retailer');
 
     }
 }

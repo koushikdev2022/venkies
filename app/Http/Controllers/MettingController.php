@@ -16,7 +16,11 @@ class MettingController extends Controller
      */
     public function index()
     {
-       $meetings=Metting::all();
+       $meetings=Metting::latest()->get()->map(function($meet){
+           $meet['retailer_name']= $meet->retailer->name?? '';
+           $meet['user_name'] = $meet->user->name?? '';
+           return $meet;
+       });
        return view('pages.meeting.index',compact('meetings'));
     }
 

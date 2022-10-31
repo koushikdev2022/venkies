@@ -19,4 +19,9 @@ class Categorie extends Model implements HasMedia
             ->height(232)
             ->sharpen(10);
     }
+
+    public function product()
+    {
+        return $this->hasMany(Product::class,'category_id');
+    }
 }
