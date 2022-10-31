@@ -15,4 +15,8 @@ class Retailer extends Model
         return $this->hasMany(Metting::class,'retailer');
 
     }
+
+    public function cart(){
+        return $this->hasOne(Cart::class,'retailer');
+    }
 }

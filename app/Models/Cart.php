@@ -14,5 +14,9 @@ class Cart extends Model
         return $this->belongsTo(Product::class,'product');
     }
 
+    public function get_retailer(){
+        return $this->belongsTo(Retailer::class,'retailer');
+    }
+
 
 }
