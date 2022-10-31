@@ -22,7 +22,7 @@ class MeetingController extends Controller
         return $this->SuccessResponse(200,'Meetings fetch successfully',$meeting);
     }
     public function today_meeting(){
-       $list = Metting::where(['user_id'=>auth()->id(),'date'=> Carbon::today()])->get();
+       $list = Metting::where([ 'date' => date('Y-m-d',strtotime(Carbon::now()))  , 'user_id' =>auth()->id()])->get();
        return $this->SuccessResponse('200','data fetch successfully',$list);
     }
 }
