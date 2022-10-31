@@ -42,8 +42,8 @@ class LeaveController extends Controller
         $result=$user->update([
            'type'=>$request->type?? $user->type,
            'cause'=>$request->cause??$user->cause,
-            'from'=>date('Y-m-d',strtotime($request->from)),
-            'to'=>date('Y-m-d',strtotime($request->to)),
+            'from'=>date('Y-m-d',strtotime($request->from))??$user->from,
+            'to'=>date('Y-m-d',strtotime($request->to))??$user->to,
        ]);
         if ($result){
             return $this->SuccessResponse('200', 'Leave Updated Successfully', $user);
