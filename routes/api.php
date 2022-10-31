@@ -32,13 +32,17 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('product/list/{id}',[\App\Http\Controllers\Api\ProductController::class,'product_list']);
     Route::get('indemand/list',[\App\Http\Controllers\Api\InDemandController::class,'indemand_list']);
     Route::post('indemand/add',[\App\Http\Controllers\Api\InDemandController::class,'add_product']);
-    Route::post('in-demand/update/{id}',[\App\Http\Controllers\Api\InDemandController::class,'update_indmand']);
+    Route::post('in-demand/update/{id}',[\App\Http\Controllers\Api\InDemandController::class,'update_indemand']);
     Route::get('meeting/list',[\App\Http\Controllers\Api\MeetingController::class,'meeting_list']);
     Route::get('meeting-list/{id}',[\App\Http\Controllers\Api\MeetingController::class,'meeting_details']);
     Route::get('cart/list',[\App\Http\Controllers\Api\CartController::class,'cart_list']);
     Route::post('cart/add',[\App\Http\Controllers\Api\CartController::class,'cart_add']);
     Route::post('logout',[AuthController::class,'logout']);
     Route::post('profile/update',[AuthController::class,'profile_update']);
+    Route::get('leave/list',[\App\Http\Controllers\Api\LeaveController::class,'list_leave']);
+    Route::post('leave/create',[\App\Http\Controllers\Api\LeaveController::class,'create_leave']);
+    Route::post('leave/update/{id}',[\App\Http\Controllers\Api\LeaveController::class,'update_leave']);
+    Route::get('leave/find/{id}',[\App\Http\Controllers\Api\LeaveController::class,'find_leave']);
 });
 Route::post('login',[AuthController::class,'login']);
 

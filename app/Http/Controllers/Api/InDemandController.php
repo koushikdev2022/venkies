@@ -39,7 +39,7 @@ class InDemandController extends Controller
         return $this->SuccessResponse(200,'In-demand Product created successfully ...!', $result);
 
     }
-    public function update_indmand(Request $request,$id){
+    public function update_indemand(Request $request, $id){
         $demand= InDemandProduct::find($id);
        $result= $demand->update([
             'product_name'=>$request->product_name??$demand->product_name,
@@ -51,6 +51,6 @@ class InDemandController extends Controller
         if(!$result){
             return $this->ErrorResponse(400,"Something went wrong ...!");
         }
-        return $this->SuccessResponse(200,'Data updated created successfully ...!', $result);
+        return $this->SuccessResponse(200,'Data updated successfully ...!',  $demand);
     }
 }

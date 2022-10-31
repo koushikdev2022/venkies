@@ -19,23 +19,21 @@ class CartController extends Controller
         if($validate->fails()){
             return $this->ErrorResponse(400,$validate->messages());
         }
-        $cart_id= str::random(7);
+//        $cart_id= str::random(7);
         foreach ($request['items'] as $value){
              Cart::create([
-                'cart_id'=>$value['cart_id'],
+                 'retailer'=>$value['retailer'],
+                'user_id'=>auth()->id(),
                 'product'=>$value['product'],
                 'quantity'=>$value['quantity'],
                 'price'=>$value['price'],
             ]);
         }
-        $carts= Cart::where('cart_id',$cart_id)->get();
+        $carts= Cart::where('user_id',auth()->id())->groupBy('retailer')->get();
         return $this->SuccessResponse(200,'Cart created successfully ...!', $carts);
     }
     public function cart_list(){
-        $r= Cart::with('product.media')->where('cart_id',auth()->id())->get()->map(function($data){
-            return $data;
-        });
-
+        $r= Cart::with('product.media')->select("*")->where('user_id',auth()->id())->groupBy('retailer')->get();
         return $this->SuccessResponse(200,'Cart fetch successfully ..!',$r);
     }
 }
