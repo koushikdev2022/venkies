@@ -35,8 +35,8 @@
                         </div>
 
                         <div class="card-body">
-                            <div class="table-responsive table-responsive-lg table-responsive-sm table-responsive-md">
-                                <table class="table table-bordered table-striped">
+                            <div class="table-responsive">
+                                <table id="example1" style="width: 100%;" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
                                         <th>Serial_No</th>

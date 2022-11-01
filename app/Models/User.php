@@ -69,4 +69,7 @@ class User extends Authenticatable implements HasMedia
     public function attendance_user_name(){
         return $this->hasOne(Attendance::class,'user_id');
     }
+    public function location_user_name(){
+        return $this->hasOne(Location::class,'user_id');
+    }
 }

@@ -46,6 +46,8 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('leave/create',[\App\Http\Controllers\Api\LeaveController::class,'create_leave']);
     Route::post('leave/update/{id}',[\App\Http\Controllers\Api\LeaveController::class,'update_leave']);
     Route::get('leave/find/{id}',[\App\Http\Controllers\Api\LeaveController::class,'find_leave']);
+    Route::get('location/list',[\App\Http\Controllers\Api\LocationController::class,'location_list']);
+    Route::post('location/create',[\App\Http\Controllers\Api\LocationController::class,'location_create']);
 });
 Route::post('login',[AuthController::class,'login']);
 

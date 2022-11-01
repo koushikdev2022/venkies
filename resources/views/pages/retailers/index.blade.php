@@ -26,13 +26,14 @@
                             <h4 class="card-title">Retailers</h4>
                             <p class="card-title-desc">Retailers List</p>
                         </div>
-                        <div class="col-sm-6">
-                            <span class="card-title btn btn-primary float-end "><a href="{{route('retailer.create')}}" class=" text-white "><i class="fa fa-plus">&nbsp;</i>Add </a></span>
-                        </div>
+{{--                        <div class="col-sm-6">--}}
+{{--                            <span class="card-title btn btn-primary float-end "><a href="{{route('retailer.create')}}" class=" text-white "><i class="fa fa-plus">&nbsp;</i>Add </a></span>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
                 <div class="card-body">
-                    <table id="example1" style="width: 100%;" class="table table-bordered table-striped">
+                    <div class="table-responsive">
+                        <table id="example1" style="width: 100%;" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th>Serial_No</th>
@@ -51,7 +52,7 @@
                                 <th>pan</th>
                                 <th>gst</th>
                                 <th>Aadhar</th>
-                                <th>Action</th>
+{{--                                <th>Action</th>--}}
                             </tr>
                             </thead>
                             <tbody>
@@ -71,17 +72,17 @@
                                     <td>{{$user->concern_person_name}}</td>
                                     <td>{{$user->region}}</td>
                                     <td>{{$user->pan}}</td>
-                                    <td>{{$user->aadhar}}</td>
                                     <td>{{$user->gst}}</td>
+                                    <td>{{$user->aadhar}}</td>
 
-                                    <td>
-                                        <form action="{{ route('retailer.destroy',$user->id) }}" method="Post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <a href="{{route('retailer.edit',$user->id)}}" class="btn btn-info">Edit</a>
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
+{{--                                    <td>--}}
+{{--                                        <form action="{{ route('retailer.destroy',$user->id) }}" method="Post">--}}
+{{--                                            @csrf--}}
+{{--                                            @method('DELETE')--}}
+{{--                                            <a href="{{route('retailer.edit',$user->id)}}" class="btn btn-info">Edit</a>--}}
+{{--                                            <button type="submit" class="btn btn-danger">Delete</button>--}}
+{{--                                        </form>--}}
+{{--                                    </td>--}}
                                 </tr>
                             @empty
 
@@ -89,6 +90,7 @@
                             </tbody>
 
                         </table>
+                    </div>
                 </div>
             </div>
         </div>

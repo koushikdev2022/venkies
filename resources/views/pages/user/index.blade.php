@@ -53,8 +53,9 @@
                                         <td>{{$user->mobile}}</td>
                                         <td><img src="{{$user->image}}" alt=""></td>
                                         <td>
-                                            <input type="checkbox" id="switch{{ $key+1}}" switch="none" checked=""/>
-                                            <label for="switch{{$key+1}}" data-on-label="On" data-off-label="Off"></label>
+{{--                                            <input type="checkbox" id="switch{{ $key+1}}" class="toggle-class" switch="none" checked="" data-id="{{$user->id}}" />--}}
+{{--                                            <label for="switch{{$key+1}}" data-on-label="On" data-off-label="Off"></label>--}}
+                                            <input data-id="{{$user->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $user->status ? 'checked' : '' }}>
                                         </td>
                                         <td>
                                             <form action="{{ route('user.destroy',$user->id) }}" method="Post">
@@ -78,8 +79,10 @@
     <script>
         $(function() {
             $('.toggle-class').change(function() {
+                alert('hellow');
                 var status = $(this).prop('checked') == true ? 1 : 0;
-                var product_id = $(this).data('id');
+                var user_id = $(this).data('id');
+
                 $.ajax({
                     type: "GET",
                     dataType: "json",
@@ -89,7 +92,7 @@
                         console.log(data.success)
                     }
                 });
-            })
+            });
         });
     </script>
 {{--        </div>--}}

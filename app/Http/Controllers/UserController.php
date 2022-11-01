@@ -129,4 +129,12 @@ class UserController extends Controller
         $doctors->delete();
         return redirect()->route('user.index')->with('success','User deleted successfully ..!');
     }
+
+    public function updateStatus(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->status = $request->status;
+        $user->save();
+        return response()->json(['success'=>'Status change successfully.']);
+    }
 }
