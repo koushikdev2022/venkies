@@ -20,4 +20,7 @@ class Attendance extends Model implements HasMedia
             ->height(232)
             ->sharpen(10);
     }
+    public function attendance_user_name(){
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

@@ -48,7 +48,7 @@
                                 @forelse($attendances as $key=>$attendance)
                                     <tr>
                                         <td>{{$key+1}}</td>
-                                        <td>{{$attendance->user_id}}</td>
+                                        <td>{{$attendance->attendance_user_name->name}}</td>
                                         <td>{{$attendance->date}}</td>
                                         <td>{{$attendance->attendance}}</td>
                                         <td class="justify-content-between justify-content-center">

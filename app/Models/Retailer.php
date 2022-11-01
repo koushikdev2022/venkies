@@ -19,4 +19,8 @@ class Retailer extends Model
     public function cart(){
         return $this->hasOne(Cart::class,'retailer');
     }
+    public function get_user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

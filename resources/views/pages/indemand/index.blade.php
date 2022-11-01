@@ -8,7 +8,7 @@
                 <h4 class="mb-sm-0 font-size-18">Product</h4>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Product</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Indemand Products</a></li>
                         <li class="breadcrumb-item active"> indemand Product List</li>
                     </ol>
                 </div>
@@ -25,7 +25,7 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <h4 class="card-title">Product</h4>
+                                    <h4 class="card-title"> Indemand Products</h4>
                                     <p class="card-title-desc"> indemand Product List</p>
                                 </div>
                                 <div class="col-sm-6">
@@ -35,45 +35,48 @@
                         </div>
 
                         <div class="card-body">
-                            <table id="example1" style="width: 100%;" class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Serial_No</th>
-                                    <th>Product Name</th>
-                                    <th> Information Source</th>
-                                    <th> Market Price</th>
-                                    <th>Market Trend</th>
-                                    <th>Notes</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @forelse($indemands as $key=>$indemand)
+                            <div class="table-responsive table-responsive-lg table-responsive-sm table-responsive-md">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
                                     <tr>
-                                        <td>{{$key+1}}</td>
-                                        <td>{{$indemand->product_name}}</td>
-                                        <td>{{$indemand->source_of_information}}</td>
-                                        <td>{{$indemand->market_rate}}</td>
-                                        <td>{{$indemand->market_trend}}</td>
-                                        <td>{{$indemand->note  }}</td>
-                                        <td class="justify-content-between justify-content-center">
-                                            <form action="{{ route('indemand.destroy',$indemand->id) }}" method="Post">
-                                                @csrf
-                                                @method('DELETE')
-
-                                                <a href="{{route('indemand.edit',$indemand->id)}}" class="btn btn-info justify-content-center">Edit</a>
-
-                                                <button type="submit" class="btn btn-danger justify-content-center">Delete</button>
-
-                                            </form>
-                                        </td>
+                                        <th>Serial_No</th>
+                                        <th>Product Name</th>
+                                        <th> Information Source</th>
+                                        <th> Market Price</th>
+                                        <th>Market Trend</th>
+                                        <th>Notes</th>
+                                        <th>Action</th>
                                     </tr>
-                                @empty
+                                    </thead>
+                                    <tbody>
+                                    @forelse($indemands as $key=>$indemand)
+                                        <tr>
+                                            <td>{{$key+1}}</td>
+                                            <td>{{$indemand->product_name}}</td>
+                                            <td>{{$indemand->source_of_information}}</td>
+                                            <td>{{$indemand->market_rate}}</td>
+                                            <td>{{$indemand->market_trend}}</td>
+                                            <td>{{$indemand->note  }}</td>
+                                            <td class="justify-content-between justify-content-center">
+                                                <form action="{{ route('indemand.destroy',$indemand->id) }}" method="Post">
+                                                    @csrf
+                                                    @method('DELETE')
 
-                                @endforelse
-                                </tbody>
+                                                    <a href="{{route('indemand.edit',$indemand->id)}}" class="btn btn-info justify-content-center">Edit</a>
 
-                            </table>
+                                                    <button type="submit" class="btn btn-danger justify-content-center">Delete</button>
+
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+
+                                    @endforelse
+                                    </tbody>
+
+                                </table>
+                            </div>
+
                         </div>
                     </div>
                 </div>

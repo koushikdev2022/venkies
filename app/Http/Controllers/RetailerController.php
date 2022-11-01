@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Retailer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RetailerController extends Controller
@@ -14,8 +15,9 @@ class RetailerController extends Controller
      */
     public function index()
     {
+        $user=User::all();
         $retailers=Retailer::all();
-        return view('pages.retailers.index',compact('retailers'));
+        return view('pages.retailers.index',compact('retailers','user'));
     }
 
     /**
