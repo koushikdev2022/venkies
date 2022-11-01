@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('longitude');
             $table->string('latitude');
             $table->string('address');
-            $table->string('contact');
-            $table->string('description');
+            $table->string('contact')->nullable();
+            $table->string('description')->nullable();
 
             $table->timestamps();
         });
