@@ -36,6 +36,6 @@ class LocationController extends Controller
         if(!$locations){
             return $this->ErrorResponse(400,"Something went wrong ...!");
         }
-        return $this->SuccessResponse(200,'Retailer created successfully ...!', $locations);
+        return $this->SuccessResponse(200,'Location created successfully ...!', $locations);
     }
 }

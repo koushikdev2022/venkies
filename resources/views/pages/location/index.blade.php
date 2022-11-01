@@ -58,16 +58,16 @@
                                 <td>{{$r->address}}</td>
                                 <td>{{$r->description}}</td>
                                 <td>{{$r->contact}}</td>
-                                <td class="justify-content-between justify-content-center">
-                                    <form action="{{ route('location.destroy',$r->id) }}" method="Post">
-                                        @csrf
-                                        @method('DELETE')
+{{--                                <td class="justify-content-between justify-content-center">--}}
+{{--                                    <form action="{{ route('location.destroy',$r->id) }}" method="Post">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('DELETE')--}}
 
-                                        <a href="{{route('location.edit',$r->id)}}" class="btn btn-info justify-content-center">Edit</a>
+{{--                                        <a href="{{route('location.edit',$r->id)}}" class="btn btn-info justify-content-center">Edit</a>--}}
 
-                                        <button type="submit" class="btn btn-danger justify-content-center">Delete</button>
-                                    </form>
-                                </td>
+{{--                                        <button type="submit" class="btn btn-danger justify-content-center">Delete</button>--}}
+{{--                                    </form>--}}
+{{--                                </td>--}}
                             </tr>
                         @empty
 

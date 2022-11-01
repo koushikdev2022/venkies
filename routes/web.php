@@ -30,3 +30,4 @@ Route::resource('indemand', \App\Http\Controllers\InDemandProductController::cla
 Route::resource('attendance', \App\Http\Controllers\AttendanceController::class);
 Route::resource('meeting', \App\Http\Controllers\MettingController::class);
 Route::resource('location',\App\Http\Controllers\LocationController::class);
+Route::resource('dashboard',\App\Http\Controllers\DashboardController::class);
