@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="card-body">
-                            <table id="example1" style="width: 100%;" class="table table-bordered table-striped">
+                            <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>id</th>

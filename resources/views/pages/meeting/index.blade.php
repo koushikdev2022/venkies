@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="card-body">
-                            <table id="example1" style="width: 100%;" class="table table-bordered table-striped">
+                            <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>Serial_No</th>
@@ -51,7 +51,7 @@
                                     <tr>
                                         <td>{{$key+1}}</td>
                                         <td>{{$meeting->user_name}}</td>
-                                        <td>{{$meeting->get_retailer->name}}</td>
+                                        <td>{{$meeting->get_retailer->name?? ''}}</td>
                                         <td>{{$meeting->date}}</td>
                                         <td>{{$meeting->time}}</td>
                                         <td>{{$meeting->note}}</td>

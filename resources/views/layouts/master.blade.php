@@ -11,6 +11,12 @@
     <!-- plugin css -->
     <link href="{{asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css">
 
+    <!-- DataTables -->
+    <link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="{{ asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- preloader css -->
     <link rel="stylesheet" href="{{asset('assets/css/preloader.min.css')}}" type="text/css">
 
@@ -78,6 +84,7 @@
 <!-- Right bar overlay-->
 <div class="rightbar-overlay"></div>
 
+
 <!-- JAVASCRIPT -->
 <script src="{{asset('assets/libs/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -88,18 +95,27 @@
 <!-- pace js -->
 <script src="{{asset('assets/libs/pace-js/pace.min.js')}}"></script>
 
-<!-- apexcharts -->
-<script src="{{asset('assets/libs/apexcharts/apexcharts.min.js')}}"></script>
+<!-- Required datatable js -->
+<script src="{{asset('assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<!-- Buttons examples -->
+<script src="{{asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/libs/jszip/jszip.min.js')}}"></script>
+<script src="{{asset('assets/libs/pdfmake/build/pdfmake.min.js')}}"></script>
+<script src="{{asset('assets/libs/pdfmake/build/vfs_fonts.js')}}"></script>
+<script src="{{asset('assets/libs/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{asset('assets/libs/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
 
-<!-- Plugins js-->
-<script src="{{asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{asset('assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js')}}"></script>
-<!-- dashboard init -->
-<script src="{{asset('assets/js/pages/dashboard.init.js')}}"></script><div class="jvectormap-label"></div>
+<!-- Responsive examples -->
+<script src="{{asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+
+<!-- Datatable init js -->
+<script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
 
 <script src="{{asset('assets/js/app.js')}}"></script>
 
-
-
-<svg id="id" width="2" height="0" xmlns="" version="1.1" xmlns:xlink="" xmlns:svgjs="" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1402"></defs><polyline id="SvgjsPolyline1403" points="0,0"></polyline><path id="SvgjsPath1404" d="M0 0 "></path></svg></body>
+</body>
 </html>

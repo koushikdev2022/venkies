@@ -34,41 +34,42 @@
                             </div>
                         </div>
 
-                        <div class="card-body">
-                            <table id="example1" style="width: 100%;" class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Serial_No</th>
-                                    <th>User Name</th>
-                                    <th> Date </th>
-                                    <th> Attendane</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @forelse($attendances as $key=>$attendance)
-                                    <tr>
-                                        <td>{{$key+1}}</td>
-                                        <td>{{$attendance->attendance_user_name->name}}</td>
-                                        <td>{{$attendance->date}}</td>
-                                        <td>{{$attendance->attendance}}</td>
-                                        <td class="justify-content-between justify-content-center">
-                                            <form action="{{ route('attendance.destroy',$attendance->id) }}" method="Post">
-                                                @csrf
-                                                @method('DELETE')
+                           <div class="card-body">
+                               <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">
+                                   <thead>
+                                   <tr>
+                                       <th>Serial_No</th>
+                                       <th>User Name</th>
+                                       <th> Date </th>
+                                       <th> Attendane</th>
+                                       <th>Action</th>
+                                   </tr>
+                                   </thead>
+                                   <tbody>
+                                   @forelse($attendances as $key=>$attendance)
+                                       <tr>
+                                           <td>{{$key+1}}</td>
+                                           <td>{{$attendance->attendance_user_name->name}}</td>
+                                           <td>{{$attendance->date}}</td>
+                                           <td>{{$attendance->attendance}}</td>
+                                           <td class="justify-content-between justify-content-center">
+                                               <form action="{{ route('attendance.destroy',$attendance->id) }}" method="Post">
+                                                   @csrf
+                                                   @method('DELETE')
 
-                                                <a href="{{route('attendance.edit',$attendance->id)}}" class="btn btn-info justify-content-center">Edit</a>
+                                                   <a href="{{route('attendance.edit',$attendance->id)}}" class="btn btn-info justify-content-center">Edit</a>
 
-                                                <button type="submit" class="btn btn-danger justify-content-center">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @empty
+                                                   <button type="submit" class="btn btn-danger justify-content-center">Delete</button>
+                                               </form>
+                                           </td>
+                                       </tr>
+                                   @empty
 
-                                @endforelse
-                                </tbody>
+                                   @endforelse
+                                   </tbody>
 
-                            </table>
-                        </div>
+                               </table>
+                           </div>
                     </div>
                 </div>
             </div>
