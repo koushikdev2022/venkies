@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Retailer;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -49,7 +50,8 @@ class RetailerController extends Controller
      */
     public function show(Retailer $retailer)
     {
-        //
+        $carts=Cart::where('retailer',$retailer->id)->latest()->get();
+        return view('pages.cart.index',compact('carts'));
     }
 
     /**

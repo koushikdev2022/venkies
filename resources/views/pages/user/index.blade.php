@@ -53,9 +53,9 @@
                                         <td>{{$user->mobile}}</td>
                                         <td><img src="{{$user->image}}" alt=""></td>
                                         <td>
-{{--                                            <input type="checkbox" id="switch{{ $key+1}}" class="toggle-class" switch="none" checked="" data-id="{{$user->id}}" />--}}
-{{--                                            <label for="switch{{$key+1}}" data-on-label="On" data-off-label="Off"></label>--}}
-                                            <input data-id="{{$user->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $user->status ? 'checked' : '' }}>
+                                            <input type="checkbox" class="status switch-off-on" id="switch{{ $key+1}}" switch="none"  data-id="{{$user->id}}" @if($user->status) checked="true" @endif />
+                                            <label for="switch{{$key+1}}" data-on-label="On" data-off-label="Off"></label>
+
                                         </td>
                                         <td>
                                             <form action="{{ route('user.destroy',$user->id) }}" method="Post">
@@ -76,26 +76,22 @@
                     </div>
                 </div>
             </div>
-    <script>
-        $(function() {
-            $('.toggle-class').change(function() {
-                alert('hellow');
-                var status = $(this).prop('checked') == true ? 1 : 0;
-                var user_id = $(this).data('id');
-
-                $.ajax({
-                    type: "GET",
-                    dataType: "json",
-                    url: '/status/update',
-                    data: {'status': status, 'user_id': user_id},
-                    success: function(data){
-                        console.log(data.success)
-                    }
-                });
-            });
-        });
-    </script>
-{{--        </div>--}}
-{{--    </section>--}}
 @endsection
-
+@section('custom-js')
+    <script type="text/javascript">
+        $(document).on('change', '.switch-off-on', function () {
+            const status = $(this).is(":checked")
+            const user_id = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: '/status/update',
+                data: {'status': status, 'user_id': user_id},
+                success: function(data){
+                    alert('Status update successfully..!');
+                    console.log(data.success)
+                }
+            });
+        })
+    </script>
+@endsection

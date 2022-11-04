@@ -1,15 +1,15 @@
 @extends('layouts.master')
-@section('title','Meeting List')
+@section('title','Leave List')
 @section('content')
     <!-- start page title -->
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Meeting</h4>
+                <h4 class="mb-sm-0 font-size-18">Leave</h4>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Meeting</a></li>
-                        <li class="breadcrumb-item active">  meeting List</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Leave</a></li>
+                        <li class="breadcrumb-item active">  Leave List</li>
                     </ol>
                 </div>
             </div>
@@ -25,11 +25,11 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <h4 class="card-title">Meeting</h4>
-                                    <p class="card-title-desc"> Meeting List</p>
+                                    <h4 class="card-title">Leave</h4>
+                                    <p class="card-title-desc">Leave List</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <span class="card-title btn btn-primary float-end "><a href="{{route('meeting.create')}}" class=" text-white "><i class="fa fa-plus">&nbsp;</i>Add </a></span>
+                                    <span class="card-title btn btn-primary float-end "><a href="{{route('leave.create')}}" class=" text-white "><i class="fa fa-plus">&nbsp;</i>Add </a></span>
                                 </div>
                             </div>
                         </div>
@@ -40,27 +40,28 @@
                                 <tr>
                                     <th>Serial_No</th>
                                     <th>User Name</th>
-                                    <th>Retailer Name</th>
-                                    <th> Date </th>
-                                    <th> Time </th>
-                                    <th> Note</th>
+                                    <th>Type</th>
+                                    <th> Cause </th>
+                                    <th> From </th>
+                                    <th> To</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($meetings as $key=>$meeting)
+                                @forelse($leaves as $key=>$lea)
                                     <tr>
                                         <td>{{$key+1}}</td>
-                                        <td>{{$meeting->user_name}}</td>
-                                        <td>{{$meeting->get_retailer->name}}</td>
-                                        <td>{{$meeting->date}}</td>
-                                        <td>{{$meeting->time}}</td>
-                                        <td>{{$meeting->note}}</td>
+                                        <td>{{$lea->leave_user->name}}</td>
+                                        <td>{{$lea->type}}</td>
+                                        <td>{{$lea->cause}}</td>
+                                        <td>{{$lea->from}}</td>
+                                        <td>{{$lea->to}}</td>
                                         <td class="justify-content-between justify-content-center">
-                                            <form action="{{ route('meeting.destroy',$meeting->id) }}" method="Post">
+                                            <form action="{{ route('leave.destroy',$lea->id) }}" method="Post">
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <a href="{{route('meeting.edit',$meeting->id)}}" class="btn btn-info justify-content-center">Edit</a>
+                                                <a href="{{route('leave.edit',$lea->id)}}" class="btn btn-info justify-content-center">Edit</a>
 
                                                 <button type="submit" class="btn btn-danger justify-content-center">Delete</button>
                                             </form>

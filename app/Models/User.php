@@ -72,4 +72,13 @@ class User extends Authenticatable implements HasMedia
     public function location_user_name(){
         return $this->hasOne(Location::class,'user_id');
     }
+    public function cart_user()
+    {
+        return $this->hasOne(Cart::class,'user_id');
+    }
+
+    public function leave_user()
+     {
+        return$this->hasOne(Leave::class,'user_id');
+    }
 }

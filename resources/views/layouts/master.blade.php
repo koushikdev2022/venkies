@@ -116,6 +116,7 @@
 <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
 
 <script src="{{asset('assets/js/app.js')}}"></script>
+@yield('custom-js')
 
 </body>
 </html>

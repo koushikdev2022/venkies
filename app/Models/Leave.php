@@ -9,4 +9,7 @@ class Leave extends Model
 {
     protected $guarded=['id'];
     use HasFactory;
+    public function  leave_user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

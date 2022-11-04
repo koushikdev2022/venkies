@@ -40,49 +40,45 @@
                                 <th> user_id</th>
                                 <th>name</th>
                                 <th>Mobile</th>
-                                <th>Mobile2</th>
                                 <th>email</th>
-                                <th>Address</th>
-                                <th>Address1</th>
                                 <th>City</th>
                                 <th>Pin Code</th>
-                                <th>State</th>
-                                <th>Concern Person Name</th>
-                                <th>Region</th>
-                                <th>pan</th>
-                                <th>gst</th>
-                                <th>Aadhar</th>
-{{--                                <th>Action</th>--}}
+{{--                                <th>State</th>--}}
+{{--                                <th>Concern Person Name</th>--}}
+{{--                                <th>Region</th>--}}
+{{--                                <th>pan</th>--}}
+{{--                                <th>gst</th>--}}
+{{--                                <th>Aadhar</th>--}}
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse($retailers as $key=>$user)
-                                <tr>
+                                <tr >
                                     <td>{{$key+1}}</td>
                                     <td>{{$user->get_user->name}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->mobile1}}</td>
-                                    <td>{{$user->mobile2}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->address}}</td>
-                                    <td>{{$user->address1}}</td>
                                     <td>{{$user->city}}</td>
                                     <td>{{$user->pin_code}}</td>
-                                    <td>{{$user->state}}</td>
-                                    <td>{{$user->concern_person_name}}</td>
-                                    <td>{{$user->region}}</td>
-                                    <td>{{$user->pan}}</td>
-                                    <td>{{$user->gst}}</td>
-                                    <td>{{$user->aadhar}}</td>
+{{--                                    <td>{{$user->state}}</td>--}}
+{{--                                    <td>{{$user->concern_person_name}}</td>--}}
+{{--                                    <td>{{$user->region}}</td>--}}
+{{--                                    <td>{{$user->pan}}</td>--}}
+{{--                                    <td>{{$user->gst}}</td>--}}
+{{--                                    <td>{{$user->aadhar}}</td>--}}
 
-{{--                                    <td>--}}
-{{--                                        <form action="{{ route('retailer.destroy',$user->id) }}" method="Post">--}}
-{{--                                            @csrf--}}
-{{--                                            @method('DELETE')--}}
-{{--                                            <a href="{{route('retailer.edit',$user->id)}}" class="btn btn-info">Edit</a>--}}
-{{--                                            <button type="submit" class="btn btn-danger">Delete</button>--}}
-{{--                                        </form>--}}
-{{--                                    </td>--}}
+                                    <td>
+                                        <form action="{{ route('retailer.destroy',$user->id) }}" method="Post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{route('retailer.edit',$user->id)}}" class="btn btn-info">Edit</a>
+                                            <a href="{{route('retailer.show',$user)}}" class="btn btn-default">View</a>
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+
+                                        </form>
+                                    </td>
                                 </tr>
                             @empty
 
