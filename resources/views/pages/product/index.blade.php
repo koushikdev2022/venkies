@@ -8,8 +8,8 @@
                 <h4 class="mb-sm-0 font-size-18">Product</h4>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Product</a></li>
-                        <li class="breadcrumb-item active">Product List</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dshboard</a></li>
+                        <li class="breadcrumb-item active">Product</li>
                     </ol>
                 </div>
             </div>

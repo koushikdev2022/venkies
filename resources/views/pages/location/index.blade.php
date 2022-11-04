@@ -8,8 +8,8 @@
                 <h4 class="mb-sm-0 font-size-18">Location</h4>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Location</a></li>
-                        <li class="breadcrumb-item active">Location List</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Location</li>
                     </ol>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <h4 class="card-title">Location</h4>
-                            <p class="card-title-desc">Locaion List</p>
+                            <p class="card-title-desc">Location List</p>
                         </div>
 {{--                        <div class="col-sm-6">--}}
 {{--                            <span class="card-title btn btn-primary float-end "><a href="{{route('location.create')}}" class=" text-white "><i class="fa fa-plus">&nbsp;</i>Add </a></span>--}}

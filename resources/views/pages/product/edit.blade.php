@@ -21,8 +21,8 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">User</h4>
-                    <p class="card-title-desc">Create User</p>
+                    <h4 class="card-title">Product</h4>
+                    <p class="card-title-desc">Edit Product</p>
                 </div>
                 <div class="card-body">
                     <form action="{{ route( 'product.update',$products->id) }}" method="post" enctype="multipart/form-data">

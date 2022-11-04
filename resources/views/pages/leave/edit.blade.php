@@ -10,7 +10,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Add Leave</li>
+                        <li class="breadcrumb-item active">Leave</li>
                     </ol>
                 </div>
 
@@ -22,7 +22,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title"> Leave</h4>
-                    <p class="card-title-desc">Add Leave</p>
+                    <p class="card-title-desc">Edit Leave</p>
                 </div>
                 <div class="card-body">
                     <form action="{{ route( 'leave.update',$leaves->id)}}" method="post" enctype="multipart/form-data">

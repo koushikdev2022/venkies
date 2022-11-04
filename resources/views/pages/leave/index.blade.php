@@ -8,8 +8,8 @@
                 <h4 class="mb-sm-0 font-size-18">Leave</h4>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Leave</a></li>
-                        <li class="breadcrumb-item active">  Leave List</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Leave</li>
                     </ol>
                 </div>
             </div>
