@@ -39,7 +39,7 @@
                             <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Serial_No</th>
+                                    <th>S.No</th>
                                     <th> Name</th>
                                     <th>Image</th>
                                     <th>Action</th>

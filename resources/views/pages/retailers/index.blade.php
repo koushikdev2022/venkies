@@ -36,7 +36,7 @@
                         <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>Serial_No</th>
+                                <th>S.No</th>
                                 <th> user_id</th>
                                 <th>name</th>
                                 <th>Mobile</th>

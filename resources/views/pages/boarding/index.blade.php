@@ -41,7 +41,7 @@
                             <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>id</th>
+                                    <th>S.No</th>
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Image</th>

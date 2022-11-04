@@ -39,7 +39,7 @@
                                 <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Serial_No</th>
+                                        <th>S.No</th>
                                         <th>Product Name</th>
                                         <th> Information Source</th>
                                         <th> Market Price</th>

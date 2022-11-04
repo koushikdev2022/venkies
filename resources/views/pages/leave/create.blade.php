@@ -52,7 +52,7 @@
                             <div class="col-sm-6">
                                 <div class="mb-4">
                                     <label for="cause" class="form-label">Cause <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-select" name="cause" id="cause" placeholder="Cause of Leave">
+                                    <input type="text" class="form-control" name="cause" id="cause" placeholder="Cause of Leave">
 
                                 </div>
 
