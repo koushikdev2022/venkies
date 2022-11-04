@@ -44,7 +44,7 @@
                             <th>Latitude</th>
                             <th>Address</th>
                             <th>Description of Product</th>
-                            <th>Contact</th>
+                            <th width="150px">Contact</th>
 {{--                            <th>Action</th>--}}
                         </tr>
                         </thead>

@@ -45,7 +45,7 @@
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Image</th>
-                                    <th>Action</th>
+                                    <th width="80px">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -59,10 +59,10 @@
                                             <form action="{{ route('boarding.destroy',$on_boarding->id) }}" method="Post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="{{route('boarding.edit',$on_boarding->id)}}" class="btn btn-info">Edit</a>
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <a href="{{route('boarding.edit',$on_boarding->id)}}" class="btn btn-info"><i class='fa fa-edit'></i></a>
+                                                <button type="submit" class="btn btn-danger"><i class='fa fa-trash'></i></button>
                                             </form>
-                                        </td>
+                                        </td>s
                                     </tr>
                                 @empty
                                 @endforelse

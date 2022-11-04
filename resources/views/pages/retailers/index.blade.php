@@ -49,7 +49,7 @@
 {{--                                <th>pan</th>--}}
 {{--                                <th>gst</th>--}}
 {{--                                <th>Aadhar</th>--}}
-                                <th>Action</th>
+                                <th width="120px">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -73,9 +73,9 @@
                                         <form action="{{ route('retailer.destroy',$user->id) }}" method="Post">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{route('retailer.edit',$user->id)}}" class="btn btn-info">Edit</a>
-                                            <a href="{{route('retailer.show',$user)}}" class="btn btn-default">View</a>
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <a href="{{route('retailer.edit',$user->id)}}" class="btn btn-info"><i class='fa fa-edit'></i></a>
+                                            <a href="{{route('retailer.show',$user)}}" class="btn btn-default"><i class='fa fa-list'></i></a>
+                                            <button type="submit" class="btn btn-danger"><i class='fa fa-trash'></i></button>
 
                                         </form>
                                     </td>

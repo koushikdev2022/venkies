@@ -41,7 +41,7 @@
                                     <th>Mobile</th>
                                     <th>Image</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th width="80px">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -61,8 +61,8 @@
                                             <form action="{{ route('user.destroy',$user->id) }}" method="Post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="{{route('user.edit',$user->id)}}" class="btn btn-info">Edit</a>
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <a href="{{route('user.edit',$user->id)}}" class="btn btn-info"><i class='fa fa-edit'></i></a>
+                                                <button type="submit" class="btn btn-danger"><i class='fa fa-trash'></i></button>
                                             </form>
                                         </td>
                                     </tr>

@@ -42,7 +42,7 @@
                                     <th>S.No</th>
                                     <th> Name</th>
                                     <th>Image</th>
-                                    <th>Action</th>
+                                    <th width="80px">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -57,9 +57,9 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <a href="{{route('categorie.edit',$cat->id)}}" class="btn btn-info">Edit</a>
+                                                <a href="{{route('categorie.edit',$cat->id)}}" class="btn btn-info"><i class='fa fa-edit'></i></a>
 
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger"><i class='fa fa-trash'></i></button>
 
                                             </form>
                                         </td>

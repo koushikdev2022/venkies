@@ -44,7 +44,7 @@
                                     <th>Product Name</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
-                                    <th>Action</th>
+                                    <th width="80px">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -61,9 +61,9 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <a href="{{route('cart.edit',$user->id)}}" class="btn btn-info justify-content-center">Edit</a>
+                                                <a href="{{route('cart.edit',$user->id)}}" class="btn btn-info justify-content-center"><i class='fa fa-edit'></i></a>
 
-                                                <button type="submit" class="btn btn-danger justify-content-center">Delete</button>
+                                                <button type="submit" class="btn btn-danger justify-content-center"><i class='fa fa-trash'></i></button>
                                             </form>
                                         </td>
                                     </tr>
