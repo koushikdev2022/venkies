@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-   public function product_list($id)
+   public function product_list($id=null)
    {
        if($id){
            $r=Product::where('category_id',$id)->get();

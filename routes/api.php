@@ -29,7 +29,7 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('list',[\App\Http\Controllers\Api\CategoryController::class,'list_category']);
     Route::get('retailer/list',[\App\Http\Controllers\Api\RetailerController::class,'retailer_list']);
     Route::get('retailer/find/{id}',[\App\Http\Controllers\Api\RetailerController::class,'retailer_find']);
-    Route::get('product/list/{id}',[\App\Http\Controllers\Api\ProductController::class,'product_list']);
+    Route::get('product/list/{id?}',[\App\Http\Controllers\Api\ProductController::class,'product_list']);
     Route::get('indemand/list',[\App\Http\Controllers\Api\InDemandController::class,'indemand_list']);
     Route::post('indemand/add',[\App\Http\Controllers\Api\InDemandController::class,'add_product']);
     Route::post('in-demand/update/{id}',[\App\Http\Controllers\Api\InDemandController::class,'update_indemand']);
