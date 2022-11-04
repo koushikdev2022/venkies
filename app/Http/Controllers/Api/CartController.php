@@ -23,7 +23,7 @@ class CartController extends Controller
         }
 //        $cart_id= str::random(7);
         foreach ($request['items'] as $value){
-             Cart::create([
+            $results= Cart::create([
                  'retailer'=>$value['retailer'],
                 'user_id'=>auth()->id(),
                 'product'=>$value['product'],
@@ -31,10 +31,10 @@ class CartController extends Controller
                 'price'=>$value['price'],
             ]);
         }
-        return $this->SuccessResponse(200,'Cart created successfully ...!');
+        return $this->SuccessResponse(200,'Cart created successfully ...!',$results);
     }
     public function cart_list(){
-        $r= Cart::with('product.media')->distinct('retailer')->where('user_id',auth()->id())->get()->map(function($rel){
+        $r= Cart::with('products.media')->distinct('retailer')->where('user_id',auth()->id())->get()->map(function($rel){
             $rel->retailer_name= $rel->get_retailer->name??'';
             unset($rel['get_retailer']);
             return $rel;
@@ -43,7 +43,7 @@ class CartController extends Controller
     }
 
     public function order_details($id){
-        $list = Cart::with('product.media')->where(['user_id'=>auth()->id(),'retailer'=>$id])->get()->map(function($rel){
+        $list = Cart::with('products.media')->where(['user_id'=>auth()->id(),'retailer'=>$id])->get()->map(function($rel){
             $rel->retailer_name= $rel->get_retailer->name??'';
             unset($rel['get_retailer']);
             return $rel;
