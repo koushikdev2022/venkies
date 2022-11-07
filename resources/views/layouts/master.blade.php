@@ -114,6 +114,10 @@
 
 <!-- Datatable init js -->
 <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
+<!-- Chart JS -->
+<script src="{{ asset('assets/libs/chart.js/Chart.bundle.min.js') }}"></script>
+<!-- chartjs init -->
+<script src="{{ asset('assets/js/pages/chartjs.init.js') }}"></script>
 
 <script src="{{asset('assets/js/app.js')}}"></script>
 @yield('custom-js')
