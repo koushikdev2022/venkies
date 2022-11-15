@@ -88,6 +88,7 @@
                 url: '/status/update',
                 data: {'status': status, 'user_id': user_id},
                 success: function(data){
+                    console.log(user_id,status);
                     alert('Status update successfully..!');
                     console.log(data.success)
                 }

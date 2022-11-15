@@ -138,8 +138,8 @@ class UserController extends Controller
     public function updateStatus(Request $request)
     {
         $user = User::find($request->user_id);
-        $user->status = $request->status==1?true:false;
+        $user->status = $request->status==true?1:0;
         $user->save();
-        return response()->json(['success'=>'Status change successfully.']);
+        return response()->json(['success'=>'Status updated successfully.','code'=>200]);
     }
 }
