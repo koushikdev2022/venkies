@@ -55,7 +55,7 @@ class MeetingController extends Controller
             return $this->ErrorResponse(400,"Something went wrong ...!");
         }
        $result=  $meetings->update([
-            'retailer'=>$request->retailer,
+            'retailer'=>$request->retailer?? $meetings->retailer,
             'date'=>date('Y-m-d',strtotime($request->date)),
             'time'=>date('H:i:s',strtotime($request->time)),
             'note'=>$request->note,
