@@ -54,7 +54,7 @@ class MettingController extends Controller
         $meetings=Metting::create([
             'user_id'=>$request->user_id,
             'retailer'=>$request->retailer,
-            'date'=>$request->date,
+            'date'=>date('Y-m-d',strtotime($request->date)),
             'time'=>$request->time,
             'note'=>$request->note,
         ]);
@@ -105,7 +105,7 @@ class MettingController extends Controller
         $meetings->update([
             'user_id'=>$request->user_id,
             'retailer'=>$request->retailer,
-            'date'=>$request->date,
+            'date'=>date('Y-m-d',strtotime($request->date)),
             'time'=>$request->time,
             'note'=>$request->note,
 

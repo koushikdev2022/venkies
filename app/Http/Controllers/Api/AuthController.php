@@ -44,14 +44,11 @@ class AuthController extends Controller
                 unset( $listing['media']);
                 unset( $listing['created_at']);
                 unset( $listing['updated_at']);
-
             });
         }
-
         else{
             return $this->SuccessResponse(200,"No data found",null);
         }
-
         return $this->SuccessResponse(200,"Data fetch Successfully",$banners);
     }
 

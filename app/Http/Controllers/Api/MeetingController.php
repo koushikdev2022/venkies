@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Metting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class MeetingController extends Controller
 {
@@ -24,5 +25,45 @@ class MeetingController extends Controller
     public function today_meeting(){
        $list = Metting::with('get_retailer','user')->where([ 'date' => date('Y-m-d',strtotime(Carbon::now()))  , 'user_id' =>auth()->id()])->get();
        return $this->SuccessResponse('200','data fetch successfully',$list);
+    }
+
+    public function create_meeting(Request $request){
+
+        $validator=Validator::make($request->all(),[
+            'retailer'=>'required',
+            'date'=>'required',
+            'time'=>'required',
+            'note'=>'required'
+        ]);
+        if($validator->fails()){
+            return $this->ErrorResponse('400',$validator->messages());
+        }
+        Metting::create([
+            'user_id'=>auth()->id(),
+            'retailer'=>$request->retailer,
+            'date'=>date('Y-m-d',strtotime($request->date)),
+            'time'=>date('H:i:s',strtotime($request->time)),
+            'note'=>$request->note,
+        ]);
+        return $this->SuccessResponse('200','Meeting Created successfully');
+    }
+
+    public function update_meeting(Request $request)
+    {
+        $meetings=Metting::find($request->id);
+        if($meetings==''){
+            return $this->ErrorResponse(400,"Something went wrong ...!");
+        }
+       $result=  $meetings->update([
+            'retailer'=>$request->retailer,
+            'date'=>date('Y-m-d',strtotime($request->date)),
+            'time'=>date('H:i:s',strtotime($request->time)),
+            'note'=>$request->note,
+
+        ]);
+        if(!$result){
+            return $this->ErrorResponse(400,"Something went wrong ...!");
+        }
+        return $this->SuccessResponse(200,'Meeting updated created successfully ...!', $meetings);
     }
 }

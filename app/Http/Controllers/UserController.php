@@ -107,9 +107,14 @@ class UserController extends Controller
                'name'=>$request->name,
                'email'=>$request->email,
                'mobile'=>$request->mobile,
-               'password'=>$request->password,
+
            ]
        );
+       if($request->password){
+           $users->update([
+               'password'=>$request->password,
+           ]);
+       }
         if($request->hasFile('image')){
             $users->clearMediaCollection('user');
             $users->addMedia($request->image)->toMediaCollection('user');
