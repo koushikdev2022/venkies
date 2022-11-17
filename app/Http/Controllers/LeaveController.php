@@ -50,6 +50,7 @@ class LeaveController extends Controller
             'cause'=>$request->cause,
             'from'=>date('Y-m-d',strtotime($request->from)),
             'to'=>date('Y-m-d',strtotime($request->to)),
+            'status'=>$request->status
 
         ]);
         if ($result!==null){

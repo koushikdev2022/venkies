@@ -72,6 +72,16 @@
                                     <input class="form-control" name="to" type="date" value="{{$leaves->to}}" id="to" placeholder="TO">
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="mb-4">
+                                    <label class="form-label" for="default-input">Status<span class="text-danger">*</span></label>
+                                    <select name="status" class="form-select">
+                                        <option value="0">pending</option>
+                                        <option value="1">Approve</option>
+                                        <option value="2">Cancel</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class=" mt-4">
                                 <button type="submit" class="btn btn-primary w-md">Submit</button>
                             </div>
