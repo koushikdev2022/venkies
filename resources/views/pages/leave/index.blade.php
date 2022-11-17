@@ -54,8 +54,8 @@
                                         <td>{{$lea->leave_user->name}}</td>
                                         <td>{{$lea->type}}</td>
                                         <td>{{$lea->cause}}</td>
-                                        <td>{{$lea->from}}</td>
-                                        <td>{{$lea->to}}</td>
+                                        <td>{{ date('d-M-Y',strtotime($lea->from)) }}</td>
+                                        <td>{{date('d-M-Y',strtotime($lea->to))}}</td>
                                         <td class="justify-content-between justify-content-center">
                                             <form action="{{ route('leave.destroy',$lea->id) }}" method="Post">
                                                 @csrf

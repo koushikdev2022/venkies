@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
@@ -15,8 +16,32 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-        $attendances=Attendance::all();
-        return view('pages.attendance.index',compact('attendances'));
+//        $attendances=Attendance::all();
+        $users = User::select('id', 'name')
+            ->get();
+        $attendances = Attendance::whereBetween('created_at', [date('Y-m-d',strtotime('01-11-2022')),Carbon::now()])
+            ->get();
+        $salesman= array();
+        foreach($users as $user)
+        {
+            $salesman['id'] = $user->id;
+            $salesman['name'] = $user->name;
+
+            foreach($attendances as $attendance)
+            {
+                if($attendance->user_id == $user->id)
+                {
+                    $attend_2['attendance'] = $attendance->attendance;
+                    $attend_2['advance'] = 'n';
+                    $attend_2['date'] = $attendance->created_at;
+                    $attend[] = $attend_2;
+                }
+
+            }
+            $salesman['attendance'] = $attend;
+            $final[] = $salesman;
+        }
+        return view('pages.attendance.index',compact('final'));
     }
 
     /**
