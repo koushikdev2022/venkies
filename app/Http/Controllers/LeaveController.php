@@ -49,8 +49,8 @@ class LeaveController extends Controller
             'type'=>$request->type,
             'cause'=>$request->cause,
             'from'=>date('Y-m-d',strtotime($request->from)),
-            'to'=>date('Y-m-d',strtotime($request->to)),
-            'status'=>$request->status
+            'to'=>date('Y-m-d',strtotime($request->to))
+
 
         ]);
         if ($result!==null){
@@ -98,6 +98,7 @@ class LeaveController extends Controller
             'cause'=>$request->cause??$user->cause,
             'from'=>date('Y-m-d',strtotime($request->from))??$user->from,
             'to'=>date('Y-m-d',strtotime($request->to))??$user->to,
+            'status'=>$request->status??$user->status
         ]);
         if ($result){
             return redirect()->route('leave.index')->with('success','leave updated successfuly');
