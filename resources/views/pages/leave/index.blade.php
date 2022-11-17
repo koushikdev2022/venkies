@@ -44,6 +44,7 @@
                                     <th> Cause </th>
                                     <th> From </th>
                                     <th> To</th>
+                                    <th> Status</th>
                                     <th width="80px">Action</th>
                                 </tr>
                                 </thead>
@@ -56,6 +57,8 @@
                                         <td>{{$lea->cause}}</td>
                                         <td>{{ date('d-M-Y',strtotime($lea->from)) }}</td>
                                         <td>{{date('d-M-Y',strtotime($lea->to))}}</td>
+                                        <td>@if($lea=='0') {{'Pending'}} @elseif ($lea=='1') {{'Active'}} @else
+                                            {{'Cancel'}}@endif  </td>
                                         <td class="justify-content-between justify-content-center">
                                             <form action="{{ route('leave.destroy',$lea->id) }}" method="Post">
                                                 @csrf
