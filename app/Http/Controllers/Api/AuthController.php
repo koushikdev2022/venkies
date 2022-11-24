@@ -89,9 +89,9 @@ class AuthController extends Controller
             unset($rel['get_retailer']);
             return $rel;
         });
-        $retailer = Retailer::where(['user_id'=>auth()->id(),'created_at' =>Carbon::now()])->get();
-        $leave = Leave::where(['user_id'=>auth()->id(),'created_at' =>Carbon::now()])->get();
-        $indemand= InDemandProduct::where(['user_id'=>auth()->id(),'created_at' =>Carbon::now()])->get();
+        $retailer = Retailer::where('user_id',auth()->id())->whereDate('created_at', '=', Carbon::today())->get();
+        $leave = Leave::where('user_id',auth()->id())->get();
+        $indemand= InDemandProduct::where('user_id',auth()->id())->whereDate('created_at', '=', Carbon::today())->get();
         $response= array(
             'list'=>$list,
             'order'=>$order,
