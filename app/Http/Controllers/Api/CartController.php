@@ -28,7 +28,7 @@ class CartController extends Controller
                 'user_id'=>auth()->id(),
                 'product'=>$value['product'],
                 'quantity'=>$value['quantity'],
-                'price'=>$value['price'],
+                'price'=>$request->price??0,
             ]);
         }
         return $this->SuccessResponse(200,'Cart created successfully ...!',$results);
