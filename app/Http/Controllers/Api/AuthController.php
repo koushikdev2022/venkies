@@ -3,9 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
+use App\Models\InDemandProduct;
+use App\Models\Leave;
+use App\Models\Metting;
 use App\Models\Onboarding;
+use App\Models\Retailer;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -74,5 +80,26 @@ class AuthController extends Controller
             return $this->ErrorResponse(400,"Something went wrong ...!");
         }
         return $this->SuccessResponse(200,'Data updated created successfully ...!', $result);
+    }
+
+    public function today_task(){
+        $list = Metting::with('get_retailer','user')->where([ 'date' => date('Y-m-d',strtotime(Carbon::now()))  , 'user_id' =>auth()->id()])->get();
+        $order= Cart::with('products.media')->distinct('retailer')->where(['user_id'=>auth()->id(),'created_at' =>Carbon::now()])->get()->map(function($rel){
+            $rel->retailer_name= $rel->get_retailer->name??'';
+            unset($rel['get_retailer']);
+            return $rel;
+        });
+        $retailer = Retailer::where(['user_id'=>auth()->id(),'created_at' =>Carbon::now()])->get();
+        $leave = Leave::where(['user_id'=>auth()->id(),'created_at' =>Carbon::now()])->get();
+        $indemand= InDemandProduct::where(['user_id'=>auth()->id(),'created_at' =>Carbon::now()])->get();
+        $response= array(
+            'list'=>$list,
+            'order'=>$order,
+            'indemand'=>$indemand,
+            'leave' =>$leave,
+            'retailer'=>$retailer
+        );
+        return $this->SuccessResponse(200,'Data updated created successfully ...!', $response);
+
     }
 }

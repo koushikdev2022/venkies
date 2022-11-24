@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('authentication',[AuthController::class,'authentication'])->name('authentication');
 Route::middleware('auth:sanctum')->group( function () {
     Route::get('boarding',[\App\Http\Controllers\Api\AuthController::class,'boarding']);
+    Route::get('today',[\App\Http\Controllers\Api\AuthController::class,'today_task']);
     Route::post('register',[\App\Http\Controllers\Api\RetailerController::class,'retailer_register']);
     Route::post('update',[\App\Http\Controllers\Api\RetailerController::class,'retailer_update']);
 //    Route::post('category/update',[\App\Http\Controllers\Api\CategoryController::class,'update_category']);
