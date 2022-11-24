@@ -84,7 +84,7 @@ class AuthController extends Controller
 
     public function today_task(){
         $list = Metting::with('get_retailer','user')->where([ 'date' => date('Y-m-d',strtotime(Carbon::now()))  , 'user_id' =>auth()->id()])->get();
-        $order= Cart::with('products.media')->distinct('retailer')->where(['user_id'=>auth()->id(),date('Y-m-d',strtotime('created_at')) =>Carbon::today()])->get()->map(function($rel){
+        $order= Cart::with('products.media')->distinct('retailer')->where(['user_id'=>auth()->id()])->whereDate('created_at', '=', Carbon::today())->get()->map(function($rel){
             $rel->retailer_name= $rel->get_retailer->name??'';
             unset($rel['get_retailer']);
             return $rel;
