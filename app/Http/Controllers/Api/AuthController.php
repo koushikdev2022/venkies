@@ -156,7 +156,7 @@ class AuthController extends Controller
            'retailer'=>$retailer
        );
 
-       Mail::to('anujchauhan0996@gmail.com')->send(new Report($value));
+       Mail::to('sl@solutions1313.com')->send(new Report($value));
 
 
        return $this->SuccessResponse(200,'Mail send successfully ...!');
