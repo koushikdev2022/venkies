@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\PasswordResetEmail;
 use App\Models\Cart;
 use App\Models\InDemandProduct;
 use App\Models\Leave;
@@ -13,6 +14,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -102,4 +104,18 @@ class AuthController extends Controller
         return $this->SuccessResponse(200,'Data updated created successfully ...!', $response);
 
     }
+
+   public function send_password(){
+        $user= array(
+            'password'=> 'hellow',
+            'name'=> 'anuj',
+        );
+
+       Mail::to('anujchauhan0996@gmail.com')->send(new PasswordResetEmail($user));
+
+
+       return $this->SuccessResponse(200,'Mail send successfully ...!');
+
+   }
+
 }

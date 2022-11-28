@@ -53,4 +53,4 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('location/create',[\App\Http\Controllers\Api\LocationController::class,'location_create']);
 });
 Route::post('login',[AuthController::class,'login']);
-
+Route::get('resend/password',[AuthController::class,'send_password']);
