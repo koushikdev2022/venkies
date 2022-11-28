@@ -16,6 +16,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -106,9 +107,15 @@ class AuthController extends Controller
     }
 
    public function send_password(){
+
+        $data= User::where('id',auth()->id())->first();
+        $new_pass= str::random(8);
+        $data->update([
+           'password'=>Hash::make($new_pass)
+        ]);
         $user= array(
-            'password'=> 'hellow',
-            'name'=> 'anuj',
+            'password'=> $new_pass,
+            'name'=> $data->name,
         );
 
        Mail::to('anujchauhan0996@gmail.com')->send(new PasswordResetEmail($user));
