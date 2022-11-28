@@ -51,6 +51,7 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('leave/find/{id}',[\App\Http\Controllers\Api\LeaveController::class,'find_leave']);
     Route::get('location/list',[\App\Http\Controllers\Api\LocationController::class,'location_list']);
     Route::post('location/create',[\App\Http\Controllers\Api\LocationController::class,'location_create']);
+    Route::get('resend/password',[AuthController::class,'send_password']);
 });
 Route::post('login',[AuthController::class,'login']);
-Route::get('resend/password',[AuthController::class,'send_password']);
+

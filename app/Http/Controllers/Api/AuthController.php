@@ -110,6 +110,10 @@ class AuthController extends Controller
 
         $data= User::where('id',auth()->id())->first();
         $new_pass= str::random(8);
+        if($data['email']==''||$data['email']=='null'){
+            return $this->ErrorResponse(400,"You do not have register email id ..!");
+        }
+
         $data->update([
            'password'=>Hash::make($new_pass)
         ]);
