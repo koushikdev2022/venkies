@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Mail\PasswordResetEmail;
+use App\Mail\Report;
 use App\Models\Cart;
 use App\Models\InDemandProduct;
 use App\Models\Leave;
@@ -11,6 +12,7 @@ use App\Models\Metting;
 use App\Models\Onboarding;
 use App\Models\Retailer;
 use App\Models\User;
+use App\Models\UserReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
@@ -123,6 +125,38 @@ class AuthController extends Controller
         );
 
        Mail::to('anujchauhan0996@gmail.com')->send(new PasswordResetEmail($user));
+
+
+       return $this->SuccessResponse(200,'Mail send successfully ...!');
+
+   }
+
+   public function send_report(){
+       $data= User::where('id',auth()->id())->first();
+       if($data['email']==''||$data['email']=='null'){
+           return $this->ErrorResponse(400,"You do not have register email id ..!");
+       }
+       if(UserReport::where('user_id',auth()->id())->whereDate('created_at',Carbon::now())->exists()){
+           return $this->ErrorResponse(400,"Report already send to admin ..!");
+       }
+       $list = Metting::with('get_retailer','user')->where([ 'date' => date('Y-m-d',strtotime(Carbon::now()))  , 'user_id' =>auth()->id()])->get();
+       $order= Cart::with('products.media')->distinct('retailer')->where(['user_id'=>auth()->id()])->whereDate('created_at', '=', Carbon::today())->get()->map(function($rel){
+           $rel->retailer_name= $rel->get_retailer->name??'';
+           unset($rel['get_retailer']);
+           return $rel;
+       });
+       $retailer = Retailer::where('user_id',auth()->id())->whereDate('created_at', '=', Carbon::today())->get();
+       $leave = Leave::where('user_id',auth()->id())->get();
+       $indemand= InDemandProduct::where('user_id',auth()->id())->whereDate('created_at', '=', Carbon::today())->get();
+       $value= array(
+           'list'=>$list,
+           'order'=>$order,
+           'indemand'=>$indemand,
+           'leave' =>$leave,
+           'retailer'=>$retailer
+       );
+
+       Mail::to('anujchauhan0996@gmail.com')->send(new Report($value));
 
 
        return $this->SuccessResponse(200,'Mail send successfully ...!');
