@@ -52,7 +52,7 @@
                         @forelse($locations as $key=>$r)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$r->location_user_name->name}}</td>
+                                <td>{{$r->location_user_name->name ??''}}</td>
                                 <td>{{$r->longitude}}</td>
                                 <td>{{$r->latitude}}</td>
                                 <td>{{$r->address}}</td>
