@@ -36,7 +36,7 @@
                         <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>S.No</th>
+                                <th>S.No </th>
                                 <th> user_id</th>
                                 <th>name</th>
                                 <th>Mobile</th>
@@ -56,7 +56,7 @@
                             @forelse($retailers as $key=>$user)
                                 <tr >
                                     <td>{{$key+1}}</td>
-                                    <td>{{$user->get_user->name}}</td>
+                                    <td>{{$user->get_user->name ?? ''}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->mobile1}}</td>
                                     <td>{{$user->email}}</td>
