@@ -45,7 +45,7 @@
                                         <th> Information Source</th>
                                         <th> Market Price</th>
                                         <th>Market Trend</th>
-                                        <td>Address</td>
+                                        <th>Address</th>
                                         <th>Notes</th>
                                         <th width="80px">Action</th>
                                     </tr>

@@ -42,7 +42,7 @@
                             <th>User Name</th>
                             <th>Longitude</th>
                             <th>Latitude</th>
-                            <th>Address</th>
+{{--                            <th>Address</th>--}}
                             <th>Description of Product</th>
                             <th width="150px">Contact</th>
 {{--                            <th>Action</th>--}}
@@ -55,7 +55,7 @@
                                 <td>{{$r->location_user_name->name ??''}}</td>
                                 <td>{{$r->longitude}}</td>
                                 <td>{{$r->latitude}}</td>
-                                <td>{{$r->address}}</td>
+{{--                                <td>{{$r->address}}</td>--}}
                                 <td>{{$r->description}}</td>
                                 <td>{{$r->contact}}</td>
 {{--                                <td class="justify-content-between justify-content-center">--}}
