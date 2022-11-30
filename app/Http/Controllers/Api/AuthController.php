@@ -126,7 +126,6 @@ class AuthController extends Controller
 
        Mail::to('anujchauhan0996@gmail.com')->send(new PasswordResetEmail($user));
 
-
        return $this->SuccessResponse(200,'Mail send successfully ...!');
 
    }

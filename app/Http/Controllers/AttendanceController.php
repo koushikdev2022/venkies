@@ -16,32 +16,35 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-//        $attendances=Attendance::all();
-        $users = User::select('id', 'name')
-            ->get();
-        $attendances = Attendance::whereBetween('created_at', [date('Y-m-d',strtotime('01-11-2022')),Carbon::now()])
-            ->get();
-        $salesman= array();
-        foreach($users as $user)
-        {
-            $salesman['id'] = $user->id;
-            $salesman['name'] = $user->name;
-
-            foreach($attendances as $attendance)
-            {
-                if($attendance->user_id == $user->id)
-                {
-                    $attend_2['attendance'] = $attendance->attendance;
-                    $attend_2['advance'] = 'n';
-                    $attend_2['date'] = $attendance->created_at;
-                    $attend[] = $attend_2;
-                }
-
-            }
-            $salesman['attendance'] = $attend;
-            $final[] = $salesman;
-        }
-        return view('pages.attendance.index',compact('final'));
+        $data['days'] = date('d');
+        $data['month'] = date('M');
+        $data['month_number'] = date('m');
+        $data['year_number'] = date('Y');
+        $data['information'] = User::all()->map(function ($user) {
+            $attendance = Attendance::where(['user_id' => $user['id']])->whereBetween('created_at', [date('Y-m-1'),Carbon::now()])->get();
+            $user['attendance'] = $attendance;
+            return $user;
+        });
+//        $salesman= array();
+//        foreach($users as $user)
+//        {
+//            $salesman['id'] = $user->id;
+//            $salesman['name'] = $user->name;
+//
+//            foreach($attendances as $attendance)
+//            {
+//                if($attendance->user_id == $user->id)
+//                {
+//                    $attend_2['attendance'] = $attendance->attendance=='Present'?'P':'A';
+//                    $attend_2['advance'] = 'n';
+//                    $attend_2['date'] = $attendance->created_at;
+//                    $attend[] = $attend_2;
+//                }
+//            }
+//            $salesman['attendance'] = $attend;
+//            $final[] = $salesman;
+//        }
+        return view('pages.attendance.index',$data);
     }
 
     /**

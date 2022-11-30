@@ -35,83 +35,38 @@
                         </div>
 
                            <div class="card-body">
+<div class="table-responsive">
+    <table id="datatable-buttons" class="table-condensed table-striped table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <?php for($i = 1; $i <= $days; $i++){ ?>
+            <th width="8px">
+                <?php echo $i; ?>
+            </th>
+            <?php }?>
+        </tr>
+        </thead>
+        <tbody>
+        @forelse($information as $attend)
+            <tr>
+                <td>{{ $attend['name'] }}</td>
+                @php $attendance = $attend['attendance']; @endphp
+                @for($i = 1; $i <= $days; $i++)
+                    @php $forDate = $year_number.'-'.$month_number.'-'.$i; $recordDate = date('Y-m-d', strtotime($forDate)); $record = $attendance->filter(function ($attendance) use ($recordDate) { return $attendance->created_at->isSameDay($recordDate); }); $count = count($record)-1; $value = $record[$count] ?? array('attendance' => 'a'); @endphp
+                    <td>{{ strtoupper($value['attendance']) }}</td>
+                @endfor
+            </tr>
+        @empty
+            <tr>
+                <td>No Salesman</td>
+            </tr>
+        @endforelse
+        </tbody>
+    </table>
 
-                               <table class="table-responsive table-condensed table-striped table-hover table-bordered">
-                                   <thead>
-                                   <tr>
-                                       <th>Executive</th>
-                                       <?php for($i = 1; $i <= 17; $i++){ ?>
-                                       <th>
-                                           <?php echo $i; ?>
-                                       </th>
-                                       <?php }?>
-                                   </tr>
-                                   </thead>
-                                   <tbody>
-                                   @forelse($final as $attend)
-                                       <tr>
-                                           <td>{{ $attend['name'] }}</td>
-                                           <?php
-                                           for($i = 1; $i < 17; $i++){
-                                           $make_date = date("Y-m")."-".$i;
-                                           $set_attendance_for_day=false;
-                                           $attendance_for_day ="-";
-                                           foreach($attend['attendance'] as $att){
-                                               if(date('Y-m-d',strtotime($att['date'])) == date('Y-m-d',strtotime($make_date))){
+</div>
 
-                                                   $datested = $att['attendance']=='Present'?"P":"A";
-                                               }
-                                           }
-                                           ?>
-                                           <td width="30">
-                                               {{ $datested }}
-                                           </td>
-
-                                           <?php }?>
-                                       </tr>
-                                   @empty
-                                       <tr>
-                                           <td>No Salesman</td>
-                                       </tr>
-                                   @endforelse
-                                   </tbody>
-                               </table>
-
-
-{{--                               <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">--}}
-{{--                                   <thead>--}}
-{{--                                   <tr>--}}
-{{--                                       <th>S.No</th>--}}
-{{--                                       <th>User Name</th>--}}
-{{--                                       <th> Date </th>--}}
-{{--                                       <th> Attendane</th>--}}
-{{--                                       <th Width="80px">Action</th>--}}
-{{--                                   </tr>--}}
-{{--                                   </thead>--}}
-{{--                                   <tbody>--}}
-{{--                                   @forelse($attendances as $key=>$attendance)--}}
-{{--                                       <tr>--}}
-{{--                                           <td>{{$key+1}}</td>--}}
-{{--                                           <td>{{$attendance->attendance_user_name->name}}</td>--}}
-{{--                                           <td>{{$attendance->date}}</td>--}}
-{{--                                           <td>{{$attendance->attendance}}</td>--}}
-{{--                                           <td class="justify-content-between justify-content-center">--}}
-{{--                                               <form action="{{ route('attendance.destroy',$attendance->id) }}" method="Post">--}}
-{{--                                                   @csrf--}}
-{{--                                                   @method('DELETE')--}}
-
-{{--                                                   <a href="{{route('attendance.edit',$attendance->id)}}" class="btn btn-info justify-content-center"><i class='fa fa-edit'></i></a>--}}
-
-{{--                                                   <button type="submit" class="btn btn-danger justify-content-center"><i class='fa fa-trash'></i></button>--}}
-{{--                                               </form>--}}
-{{--                                           </td>--}}
-{{--                                       </tr>--}}
-{{--                                   @empty--}}
-
-{{--                                   @endforelse--}}
-{{--                                   </tbody>--}}
-
-{{--                               </table>--}}
                            </div>
                     </div>
                 </div>

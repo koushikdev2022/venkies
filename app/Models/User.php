@@ -81,4 +81,8 @@ class User extends Authenticatable implements HasMedia
      {
         return$this->hasOne(Leave::class,'user_id');
     }
+
+    public function attendance(){
+
+    }
 }

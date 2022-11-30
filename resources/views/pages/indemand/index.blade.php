@@ -40,10 +40,12 @@
                                     <thead>
                                     <tr>
                                         <th>S.No</th>
+                                        <th>User Name</th>
                                         <th>Product Name</th>
                                         <th> Information Source</th>
                                         <th> Market Price</th>
                                         <th>Market Trend</th>
+                                        <td>Address</td>
                                         <th>Notes</th>
                                         <th width="80px">Action</th>
                                     </tr>
@@ -52,10 +54,12 @@
                                     @forelse($indemands as $key=>$indemand)
                                         <tr>
                                             <td>{{$key+1}}</td>
+                                            <td>{{$indemand->user->name??'N/A'}}</td>
                                             <td>{{$indemand->product_name}}</td>
                                             <td>{{$indemand->source_of_information}}</td>
                                             <td>{{$indemand->market_rate}}</td>
                                             <td>{{$indemand->market_trend}}</td>
+                                            <td>{{$indemand->address?? "N/A"}}</td>
                                             <td>{{$indemand->note  }}</td>
                                             <td class="justify-content-between justify-content-center">
                                                 <form action="{{ route('indemand.destroy',$indemand->id) }}" method="Post">
