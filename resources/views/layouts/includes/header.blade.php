@@ -5,19 +5,19 @@
             <div class="navbar-brand-box">
                 <a href="{{ route('dashboard.index') }}" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('assets/images/venky.png') }}" alt="" height="24">
+                                    <img src="{{ asset('assets/images/venky.png') }}" alt="" height="30" width="60">
                                 </span>
                     <span class="logo-lg">
-                                    <img src="{{ asset('assets/images/venky.png') }}" alt="" height="24"> <span class="logo-txt">Venky</span>
+                                    <img src="{{ asset('assets/images/venky.png') }}" alt="" height="24" width="60">
                                 </span>
                 </a>
 
                 <a href="{{ route('dashboard.index') }}" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('assets/images/venky.png') }}" alt="" height="24">
+                                    <img src="{{ asset('assets/images/venky.png') }}" alt="" width="60" height="24">
                                 </span>
                     <span class="logo-lg">
-                                    <img src="{{ asset('assets/images/venky.png') }}" alt="" height="24"> <span class="logo-txt">Venky</span>
+                                    <img src="{{ asset('assets/images/venky.png') }}" alt="" width="60" height="24">
                                 </span>
                 </a>
             </div>
