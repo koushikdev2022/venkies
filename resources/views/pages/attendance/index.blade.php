@@ -39,7 +39,7 @@
     <table id="datatable-buttons" class="table-condensed table-striped table-hover table-bordered">
         <thead>
         <tr>
-            <th>#</th>
+            <th>User Name</th>
             <?php for($i = 1; $i <= $days; $i++){ ?>
             <th width="8px">
                 <?php echo $i; ?>
@@ -50,7 +50,7 @@
         <tbody>
         @forelse($information as $attend)
             <tr>
-                <td>{{ $attend['name'] }}</td>
+                <td>{{ ucfirst($attend['name']) }}</td>
                 @php $attendance = $attend['attendance']; @endphp
                 @for($i = 1; $i <= $days; $i++)
                     @php $forDate = $year_number.'-'.$month_number.'-'.$i; $recordDate = date('Y-m-d', strtotime($forDate)); $record = $attendance->filter(function ($attendance) use ($recordDate) { return $attendance->created_at->isSameDay($recordDate); }); $count = count($record)-1; $value = $record[$count] ?? array('attendance' => 'a'); @endphp
@@ -59,7 +59,7 @@
             </tr>
         @empty
             <tr>
-                <td>No Salesman</td>
+                <td>No User</td>
             </tr>
         @endforelse
         </tbody>

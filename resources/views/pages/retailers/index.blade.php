@@ -36,19 +36,19 @@
                         <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>S.No </th>
+                                <th>S.no </th>
                                 <th> User Name</th>
                                 <th>name</th>
                                 <th>Mobile</th>
                                 <th>email</th>
                                 <th>City</th>
                                 <th>Pin Code</th>
-{{--                                <th>State</th>--}}
-{{--                                <th>Concern Person Name</th>--}}
-{{--                                <th>Region</th>--}}
-{{--                                <th>pan</th>--}}
-{{--                                <th>gst</th>--}}
-{{--                                <th>Aadhar</th>--}}
+                                <th>State</th>
+                                <th>Concern Person Name</th>
+                                <th>Region</th>
+                                <th>pan</th>
+                                <th>gst</th>
+                                <th>Aadhar</th>
                                 <th width="120px">Action</th>
                             </tr>
                             </thead>
@@ -62,12 +62,12 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->city}}</td>
                                     <td>{{$user->pin_code}}</td>
-{{--                                    <td>{{$user->state}}</td>--}}
-{{--                                    <td>{{$user->concern_person_name}}</td>--}}
-{{--                                    <td>{{$user->region}}</td>--}}
-{{--                                    <td>{{$user->pan}}</td>--}}
-{{--                                    <td>{{$user->gst}}</td>--}}
-{{--                                    <td>{{$user->aadhar}}</td>--}}
+                                    <td>{{$user->state}}</td>
+                                    <td>{{$user->concern_person_name}}</td>
+                                    <td>{{$user->region}}</td>
+                                    <td>{{$user->pan}}</td>
+                                    <td>{{$user->gst}}</td>
+                                    <td>{{$user->aadhar}}</td>
 
                                     <td>
                                         <form action="{{ route('retailer.destroy',$user->id) }}" method="Post">
