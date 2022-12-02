@@ -52,7 +52,7 @@
                                 @forelse($leaves as $key=>$lea)
                                     <tr>
                                         <td>{{$key+1}}</td>
-                                        <td>{{$lea->leave_user->name}}</td>
+                                        <td>{{$lea->leave_user->name ?? ''}}</td>
                                         <td>{{$lea->type}}</td>
                                         <td>{{$lea->cause}}</td>
                                         <td>{{ date('d-M-Y',strtotime($lea->from)) }}</td>
