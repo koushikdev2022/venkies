@@ -37,7 +37,7 @@
                             <thead>
                             <tr>
                                 <th>S.No </th>
-                                <th> user_id</th>
+                                <th> User Name</th>
                                 <th>name</th>
                                 <th>Mobile</th>
                                 <th>email</th>

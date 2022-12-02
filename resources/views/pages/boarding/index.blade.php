@@ -26,8 +26,8 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <h4 class="card-title">boarding</h4>
-                                    <p class="card-title-desc">boarding List</p>
+                                    <h4 class="card-title">Boarding</h4>
+                                    <p class="card-title-desc">Boarding List</p>
                                 </div>
                                 <div class="col-sm-6 ">
                                     <span class="card-title btn btn-primary float-end "><a href="{{route('boarding.create')}}" class=" text-white "><i class="fa fa-plus">&nbsp;</i>Add </a></span>

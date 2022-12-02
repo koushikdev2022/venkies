@@ -39,8 +39,8 @@
                                 <thead>
                                 <tr>
                                     <th>S.No</th>
-                                    <th>category</th>
-                                    <th> Name</th>
+                                    <th>Category</th>
+                                    <th>Name</th>
                                     <th>Price</th>
                                     <th>Description</th>
                                     <th>image</th>

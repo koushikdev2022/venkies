@@ -25,8 +25,8 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <h4 class="card-title">cart</h4>
-                                    <p class="card-title-desc">cart List</p>
+                                    <h4 class="card-title">Cart</h4>
+                                    <p class="card-title-desc">Cart List</p>
                                 </div>
                                 <div class="col-sm-6">
                                     <span class="card-title btn btn-primary float-end "><a href="{{route('cart.create')}}" class=" text-white "><i class="fa fa-plus">&nbsp;</i>Add </a></span>
