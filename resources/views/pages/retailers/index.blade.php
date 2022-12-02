@@ -49,6 +49,7 @@
                                 <th>pan</th>
                                 <th>gst</th>
                                 <th>Aadhar</th>
+                                <th>Joining Date</th>
                                 <th width="120px">Action</th>
                             </tr>
                             </thead>
@@ -68,6 +69,7 @@
                                     <td>{{$user->pan}}</td>
                                     <td>{{$user->gst}}</td>
                                     <td>{{$user->aadhar}}</td>
+                                    <td>{{date('d-M-Y',strtotime($user->created_at))}}</td>
 
                                     <td>
                                         <form action="{{ route('retailer.destroy',$user->id) }}" method="Post">
