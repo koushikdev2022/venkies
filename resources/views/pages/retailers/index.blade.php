@@ -37,18 +37,19 @@
                             <thead>
                             <tr>
                                 <th>S.no </th>
-                                <th> User Name</th>
-                                <th>name</th>
+                                <th>User Name</th>
+                                <th>Name</th>
                                 <th>Mobile</th>
-                                <th>email</th>
+                                <th>Email</th>
                                 <th>City</th>
                                 <th>Pin Code</th>
                                 <th>State</th>
                                 <th>Concern Person Name</th>
                                 <th>Region</th>
-                                <th>pan</th>
-                                <th>gst</th>
+                                <th>Pan</th>
+                                <th>Gst</th>
                                 <th>Aadhar</th>
+                                <th>Note</th>
                                 <th>Joining Date</th>
                                 <th width="120px">Action</th>
                             </tr>
@@ -69,6 +70,7 @@
                                     <td>{{$user->pan}}</td>
                                     <td>{{$user->gst}}</td>
                                     <td>{{$user->aadhar}}</td>
+                                    <td>{{$user->description}}</td>
                                     <td>{{date('d-M-Y',strtotime($user->created_at))}}</td>
 
                                     <td>

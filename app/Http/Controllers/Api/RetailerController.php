@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Retailer;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class RetailerController extends Controller
@@ -46,6 +48,7 @@ class RetailerController extends Controller
             'region'=>$request->region,
             'pan'=>$request->pan,
             'gst'=>$request->gst,
+            'description' => $request->description,
             'aadhar'=>$request->aadhar
         ]);
         if(!$retailer){
@@ -74,6 +77,7 @@ class RetailerController extends Controller
             'region'=>$request->region?? $r->region,
             'pan'=>$request->pan?? $r->pan ,
             'gst'=>$request->gst?? $r->gst,
+            'description' => $request->description?? $r->description,
             'aadhar'=>$request->aadhar?? $r->aadhar,
         ]);
         return $this->SuccessResponse(200,'Retailer Updated successfully....!',$r);
@@ -93,4 +97,19 @@ class RetailerController extends Controller
 
     }
 
+    public function retailer_order(){
+        $retailer= Retailer::select(DB::raw("COUNT(*) as total"),DB::raw("MONTHNAME(created_at) as MonthName"))
+            ->whereYear('created_at',date('Y'))
+            ->groupBy('MonthName')
+            ->get();
+        $orders= Cart::select(DB::raw("COUNT(*) as total"),DB::raw("MONTHNAME(created_at) as MonthName"))
+            ->whereYear('created_at',date('Y'))
+            ->groupBy('MonthName')
+            ->get();
+        $response=[
+            'retailer' => $retailer,
+            'orders'=>$orders
+        ];
+        return response(['code'=>200,'data'=>$response]);
+    }
 }

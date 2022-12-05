@@ -17,7 +17,8 @@ class DashboardController extends Controller
            'total_executives'=>User::count(),
            'total_orders'=>Cart::count()
        ];
-       return view('home',compact('response'));
+       $data= (new \App\Http\Controllers\Api\RetailerController())->retailer_order();
+       return view('home',compact('response','data'));
    }
 
 }

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('retailer/order',[\App\Http\Controllers\Api\RetailerController::class,'retailer_order'])->name('retailer.order');
 
 Auth::routes();
 
@@ -33,3 +34,4 @@ Route::resource('location',\App\Http\Controllers\LocationController::class);
 Route::resource('dashboard',\App\Http\Controllers\DashboardController::class);
 Route::resource('cart',\App\Http\Controllers\CartController::class);
 Route::resource('leave',\App\Http\Controllers\LeaveController::class);
+
