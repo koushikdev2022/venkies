@@ -2,28 +2,7 @@
 <html>
 <head>
     <style>
-        #customers {
-            font-family: Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
 
-        #customers td, #customers th {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        #customers tr:nth-child(even){background-color: #f2f2f2;}
-
-        #customers tr:hover {background-color: #ddd;}
-
-        #customers th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #04AA6D;
-            color: white;
-        }
     </style>
 </head>
 <body>
@@ -31,7 +10,9 @@
         <table id="customers">
 
                     @if(is_null($value['retailer']))
+
                 <thead>
+                <tr><th colspan="=4"> Retailers</th></tr>
                 <tr>
                     <th colspan="4"> Retailer Details</th>
                 </tr>
@@ -57,8 +38,10 @@
 
                     @if(is_null($value['order']) )
                 <thead>
+                <tr><th colspan="=4"> Order Details</th></tr>
                 <tr>
-                    <th colspan="4"> order Details</th>
+
+                    <th colspan="4"> Order Details</th>
                 </tr>
                 <tr>
                     <th>Name</th>
@@ -79,34 +62,9 @@
 
             @endif
 
-                    @if(!is_null($value['leave']) )
-                        <thead>
-                        <tr>
-                            <th colspan="4"> Leave</th>
-                        </tr>
-                        <tr>
-                            <th>From date</th>
-                            <th>To Date</th>
-                            <th>Type</th>
-                            <th>Cause</th>
-                        </tr>
-                        </thead>
-                        @forelse($value['leave'] as $l)
-
-                            <tr>
-                                <td>{{ date('d-M-Y',strtotime( $l->from)) ?? '' }}</td>
-                                <td>{{ date('d-M-Y',strtotime( $l->to)) ?? '' }}</td>
-                                <td>{{ $l->type ?? '' }}</td>
-                                <td>{{ $l->cause ?? '' }}</td>
-                            </tr>
-
-                            @empty
-
-                        @endforelse
-                    @endif
-
                     @if(!is_null($value['indemand']) )
                             <thead>
+                            <tr><th colspan="=4"> Indemand Details</th></tr>
                             <tr>
                                 <th colspan="4"> In Demand Product</th>
                             </tr>

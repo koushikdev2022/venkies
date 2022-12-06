@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('retailer')->references('id')->on('retailers')->onUpdate('cascade')->onDelete('cascade');
             $table->string('date')->nullable();
             $table->string('time')->nullable();
-            $table->string('note')->nullable();
+            $table->longText('note')->nullable();
             $table->timestamps();
         });
     }
