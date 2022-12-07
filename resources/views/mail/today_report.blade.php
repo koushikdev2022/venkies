@@ -63,9 +63,7 @@
 {{--                    @if(!is_null($value['indemand']) )--}}
                             <thead>
                             <tr><th colspan="=4"> Indemand Details</th></tr>
-                            <tr>
-                                <th colspan="4"> In Demand Product</th>
-                            </tr>
+
                             <tr>
                                 <th>Product Name</th>
                                 <th>Source</th>
@@ -87,6 +85,29 @@
                             @endforelse
 {{--                        @endif--}}
 
+
+            <thead>
+            <tr><th colspan="=4"> Meeting Details</th></tr>
+
+            <tr>
+                <th>Retailer Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>note</th>
+            </tr>
+            </thead>
+            @forelse($value['list'] as $l)
+
+                <tr>
+                    <td>{{ $l->get_retailer->name ?? '' }}</td>
+                    <td>{{ date('d-M-Y',strtotime($l->date)) ?? '' }}</td>
+                    <td>{{  $l->time?? '' }}</td>
+                    <td>{{ $l->note ?? '' }}</td>
+                </tr>
+
+            @empty
+
+            @endforelse
         </table>
 
 </body>
