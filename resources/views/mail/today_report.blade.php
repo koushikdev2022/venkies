@@ -39,22 +39,20 @@
 {{--                    @if(is_null($value['order']) )--}}
                 <thead>
                 <tr><th colspan="=4"> Order Details</th></tr>
-                <tr>
 
-                    <th colspan="4"> Order Details</th>
-                </tr>
                 <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Mobile</th>
+                    <th>User Name</th>
+                    <th>Retailer Name</th>
+                    <th>Product Name</th>
                     <th>Address</th>
                 </tr>
                 </thead>
                 @forelse($value['order'] as $o)
                     <tr>
-                        <td>{{ $o->retailer?? '' }}</td>
-                        <td>{{ $o->product?? '' }}</td>
-                        <td>{{ $r->quantity?? '' }}</td>
+                        <td>{{ $o->cart_user->name?? '' }}</td>
+                        <td>{{ $o->get_retailer->name?? '' }}</td>
+                        <td>{{ $o->products->name?? '' }}</td>
+                        <td>{{ $o->quantity?? '' }}</td>
                     </tr>
                     @empty
 
