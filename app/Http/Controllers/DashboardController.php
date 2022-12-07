@@ -18,6 +18,7 @@ class DashboardController extends Controller
            'total_orders'=>Cart::count()
        ];
        $data= (new \App\Http\Controllers\Api\RetailerController())->retailer_order();
+
        return view('home',compact('response','data'));
    }
 

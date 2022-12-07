@@ -106,10 +106,24 @@ class RetailerController extends Controller
             ->whereYear('created_at',date('Y'))
             ->groupBy('MonthName')
             ->get();
-        $response=[
-            'retailer' => $retailer,
-            'orders'=>$orders
-        ];
-        return response(['code'=>200,'data'=>$response]);
+
+        $data = [];
+
+        foreach($retailer as $key=>$row) {
+            $data['retailer'][] = (int) $row->total??0;
+            foreach ($orders as $val=> $o){
+                if($key==$val){
+                    $data['order'][] = (int) $o->total?? 0;
+                    $data['label'][] =  $o->MonthName;
+                }
+
+            }
+
+
+        }
+
+        $data['chart_data'] = json_encode($data);
+
+        return response(['code'=>200,'data'=>$data]);
     }
 }
