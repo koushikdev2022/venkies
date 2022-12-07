@@ -154,8 +154,7 @@ class AuthController extends Controller
            'leave' =>$leave,
            'retailer'=>$retailer
        );
-
-       Mail::to('sl@solutions1313.com')->send(new Report($value));
+       Mail::to('anujchauhan0996@gmail.com')->send(new Report($value));
 
 
        return $this->SuccessResponse(200,'Mail send successfully ...!');

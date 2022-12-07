@@ -9,7 +9,7 @@
 
         <table id="customers">
 
-                    @if(is_null($value['retailer']))
+{{--                    @if(is_null($value['retailer']))--}}
 
                 <thead>
                 <tr><th colspan="=4"> Retailers</th></tr>
@@ -34,9 +34,9 @@
 
                 @endforelse
 
-            @endif
+{{--            @endif--}}
 
-                    @if(is_null($value['order']) )
+{{--                    @if(is_null($value['order']) )--}}
                 <thead>
                 <tr><th colspan="=4"> Order Details</th></tr>
                 <tr>
@@ -60,9 +60,9 @@
 
                 @endforelse
 
-            @endif
+{{--            @endif--}}
 
-                    @if(!is_null($value['indemand']) )
+{{--                    @if(!is_null($value['indemand']) )--}}
                             <thead>
                             <tr><th colspan="=4"> Indemand Details</th></tr>
                             <tr>
@@ -87,7 +87,7 @@
                             @empty
 
                             @endforelse
-                        @endif
+{{--                        @endif--}}
 
         </table>
 

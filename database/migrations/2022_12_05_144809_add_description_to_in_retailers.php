@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('in_retailers', function (Blueprint $table) {
+        Schema::table('retailers', function (Blueprint $table) {
              $table->longText('description')->nullable();
         });
     }
