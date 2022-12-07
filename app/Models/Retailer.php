@@ -17,7 +17,7 @@ class Retailer extends Model
     }
 
     public function cart(){
-        return $this->hasOne(Cart::class,'retailer');
+        return $this->hasMany(Cart::class,'retailer');
     }
     public function get_user()
     {

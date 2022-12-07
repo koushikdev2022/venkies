@@ -34,7 +34,6 @@
 {{--                    @if(is_null($value['retailer']))--}}
 
                 <thead>
-                <tr><th colspan="=4"> Retailers</th></tr>
                 <tr>
                     <th colspan="4"> Retailer Details</th>
                 </tr>
@@ -59,9 +58,9 @@
 {{--            @endif--}}
 
 {{--                    @if(is_null($value['order']) )--}}
+            <tr><td colspan="4">&nbsp;</td></tr>
                 <thead>
-                <tr><th colspan="=4"> Order Details</th></tr>
-
+                <tr><th colspan="4"> Order Details</th></tr>
                 <tr>
                     <th>User Name</th>
                     <th>Retailer Name</th>
@@ -83,6 +82,7 @@
 {{--            @endif--}}
 
 {{--                    @if(!is_null($value['indemand']) )--}}
+            <tr><td colspan="4">&nbsp;</td></tr>
                             <thead>
                             <tr><th colspan="=4"> Indemand Details</th></tr>
 
@@ -107,7 +107,7 @@
                             @endforelse
 {{--                        @endif--}}
 
-
+            <tr><td colspan="4">&nbsp;</td></tr>
             <thead>
             <tr><th colspan="=4"> Meeting Details</th></tr>
 
