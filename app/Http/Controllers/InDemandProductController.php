@@ -107,6 +107,6 @@ class InDemandProductController extends Controller
         $indemands = InDemandProduct::find($id);
 
         $indemands->delete();
-        return redirect()->route('indemand.index')->with('success', 'data deletion successfulll......');
+        return redirect()->route('indemand.index')->with('success', 'data deletion successfully ......');
     }
 }
