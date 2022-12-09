@@ -14,7 +14,7 @@ class InDemandProductController extends Controller
      */
     public function index()
     {
-       $indemands=InDemandProduct::all();
+       $indemands=InDemandProduct::select('product_name')->groupBy('product_name')->get();
        return view('pages.indemand.index', compact('indemands'));
     }
 
@@ -52,7 +52,7 @@ class InDemandProductController extends Controller
           'address'=>'admin'
       ]);
       if($indemands!==null)
-        { return redirect()->route('indemand.index')->with('success','data inserted suceesfully....');
+        { return redirect()->route('indemand.index')->with('success','data inserted successfully....');
         }
         return redirect()->route('indemand.index')->with('failure',' data insertion failed......!!');
     }
@@ -63,9 +63,10 @@ class InDemandProductController extends Controller
      * @param  \App\Models\InDemandProduct  $inDemandProduct
      * @return \Illuminate\Http\Response
      */
-    public function show(InDemandProduct $inDemandProduct)
+    public function show($name)
     {
-        //
+        $indemands=InDemandProduct::where('product_name',$name)->latest()->get();
+        return view('pages.indemand.show', compact('indemands'));
     }
 
     /**
@@ -92,7 +93,7 @@ class InDemandProductController extends Controller
             'market_trend'=>$request->market_trend,
             'note'=>$request->note,
         ]);
-        return redirect()->route('indemand.index')->with('success','data updation successfull>.....!');
+        return redirect()->route('indemand.index')->with('success','data updated successfully.....!');
     }
 
     /**

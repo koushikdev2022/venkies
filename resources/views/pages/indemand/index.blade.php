@@ -39,39 +39,15 @@
                                 <table id="datatable-buttons" style="width: 100%;" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>S.No</th>
-                                        <th>User Name</th>
+                                        <th width="60px">S.No</th>
                                         <th>Product Name</th>
-                                        <th> Information Source</th>
-                                        <th> Market Price</th>
-                                        <th>Market Trend</th>
-                                        <th>Address</th>
-                                        <th>Notes</th>
-                                        <th width="80px">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @forelse($indemands as $key=>$indemand)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$indemand->user->name??'N/A'}}</td>
-                                            <td>{{$indemand->product_name}}</td>
-                                            <td>{{$indemand->source_of_information}}</td>
-                                            <td>{{$indemand->market_rate}}</td>
-                                            <td>{{$indemand->market_trend}}</td>
-                                            <td>{{$indemand->address?? "N/A"}}</td>
-                                            <td>{{$indemand->note  }}</td>
-                                            <td class="justify-content-between justify-content-center">
-                                                <form action="{{ route('indemand.destroy',$indemand->id) }}" method="Post">
-                                                    @csrf
-                                                    @method('DELETE')
-
-                                                    <a href="{{route('indemand.edit',$indemand->id)}}" class="btn btn-info justify-content-center"><i class='fa fa-edit'></i></a>
-
-                                                    <button type="submit" class="btn btn-danger justify-content-center"><i class='fa fa-trash'></i></button>
-
-                                                </form>
-                                            </td>
+                                            <td><a href="{{ route('indemand.show',$indemand->product_name) }}" > {{$indemand->product_name}} </a></td>
                                         </tr>
                                     @empty
 
