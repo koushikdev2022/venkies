@@ -20,7 +20,8 @@ class InDemandController extends Controller
             'source_of_information'=>'required',
             'market_trend'=>'required',
             'market_rate'=>'required',
-            'note'=>'required'
+            'note'=>'required',
+            'address'=>'required'
             ]);
         if($validator->fails()){
             return $this->ErrorResponse('400',$validator->messages());
@@ -32,6 +33,7 @@ class InDemandController extends Controller
             'market_rate'=>$request->market_rate,
             'market_trend'=>$request->market_trend,
             'note'=>$request->note,
+            'address'=>$request->address
         ]);
         if(!$result){
             return $this->ErrorResponse(400,"Something went wrong ...!");
@@ -47,6 +49,7 @@ class InDemandController extends Controller
             'market_rate'=>$request->market_rate?? $demand->market_rate,
             'market_trend'=>$request->market_trend ?? $demand->market_trend,
             'note'=>$request->note ?? $demand->note,
+           'address'=>$request->address
         ]);
         if(!$result){
             return $this->ErrorResponse(400,"Something went wrong ...!");

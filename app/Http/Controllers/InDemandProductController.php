@@ -49,6 +49,7 @@ class InDemandProductController extends Controller
           'market_rate'=>$request->market_rate,
           'market_trend'=>$request->market_trend,
           'note'=>$request->note,
+          'address'=>'admin'
       ]);
       if($indemands!==null)
         { return redirect()->route('indemand.index')->with('success','data inserted suceesfully....');
