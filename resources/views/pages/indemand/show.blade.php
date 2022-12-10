@@ -47,6 +47,7 @@
                                 <th>Market Trend</th>
                                 <th>Address</th>
                                 <th>Notes</th>
+                                <th>Created At</th>
                                 <th width="80px">Action</th>
                             </tr>
                             </thead>
@@ -61,6 +62,7 @@
                                     <td>{{$indemand->market_trend}}</td>
                                     <td>{{$indemand->address?? "N/A"}}</td>
                                     <td>{{$indemand->note  }}</td>
+                                    <td>{{ date('d-M-Y',strtotime($indemand->created_at)) }}</td>
                                     <td class="justify-content-between justify-content-center">
                                         <form action="{{ route('indemand.destroy',$indemand->id) }}" method="Post">
                                             @csrf
