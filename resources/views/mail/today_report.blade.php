@@ -17,6 +17,10 @@
         #customers tr:nth-child(even){background-color: #f2f2f2;}
 
         #customers tr:hover {background-color: #ddd;}
+        #heading {
+            background-color: black;
+            color:white;
+        }
 
         #customers th {
             padding-top: 12px;
@@ -34,7 +38,7 @@
 {{--                    @if(is_null($value['retailer']))--}}
 
                 <thead>
-                <tr>
+                <tr id="heading">
                     <th colspan="4"> Retailer Details</th>
                 </tr>
                 <tr>
@@ -58,14 +62,14 @@
 {{--            @endif--}}
 
 {{--                    @if(is_null($value['order']) )--}}
-            <tr><td colspan="4">&nbsp;</td></tr>
+
                 <thead>
-                <tr><th colspan="4"> Order Details</th></tr>
+                <tr id="heading" ><th colspan="4"> Order Details</th></tr>
                 <tr>
                     <th>User Name</th>
                     <th>Retailer Name</th>
                     <th>Product Name</th>
-                    <th>Address</th>
+                    <th>Quantity</th>
                 </tr>
                 </thead>
                 @forelse($value['order'] as $o)
@@ -82,15 +86,16 @@
 {{--            @endif--}}
 
 {{--                    @if(!is_null($value['indemand']) )--}}
-            <tr><td colspan="4">&nbsp;</td></tr>
+
                             <thead>
-                            <tr><th colspan="=4"> Indemand Details</th></tr>
+                            <tr id="heading"><th colspan="4"> Indemand Details</th></tr>
 
                             <tr>
                                 <th>Product Name</th>
                                 <th>Source</th>
                                 <th>Rate</th>
                                 <th>Trend</th>
+                                <th>Address</th>
                             </tr>
                             </thead>
                             @forelse($value['indemand'] as $i)
@@ -100,6 +105,7 @@
                                     <td>{{ $i->source_of_information ?? '' }}</td>
                                     <td>{{ $i->market_rate ?? '' }}</td>
                                     <td>{{ $i->market_trend ?? '' }}</td>
+                                    <td>{{ $i->address ?? 'N/A' }}</td>
                                 </tr>
 
                             @empty
@@ -109,7 +115,7 @@
 
             <tr><td colspan="4">&nbsp;</td></tr>
             <thead>
-            <tr><th colspan="=4"> Meeting Details</th></tr>
+            <tr id="heading"><th colspan="=4"> Meeting Details</th></tr>
 
             <tr>
                 <th>Retailer Name</th>
