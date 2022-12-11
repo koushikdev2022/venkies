@@ -33,7 +33,7 @@
 </head>
 <body>
 
-        <table id="customers">
+
 
 {{--                    @if(is_null($value['retailer']))--}}
 
@@ -62,9 +62,9 @@
 {{--            @endif--}}
 
 {{--                    @if(is_null($value['order']) )--}}
-
+<table id="customers">
                 <thead>
-                <tr id="heading" ><th colspan="4"> Order Details</th></tr>
+                <tr id="heading" ><th colspan="5"> Order Details</th></tr>
                 <tr>
                     <td>S.no</td>
                     <th>User Name</th>
@@ -73,6 +73,7 @@
                     <th>Quantity</th>
                 </tr>
                 </thead>
+        <tbody>
                 @forelse($value['order'] as $key=> $o)
                     <tr>
                         <td>{{ $key+1 }}</td>
@@ -85,23 +86,25 @@
 
                 @endforelse
             <tr> <td colspan=5>&nbsp;</td></tr>
-
+        </tbody>
+</table>
 {{--            @endif--}}
 
 {{--                    @if(!is_null($value['indemand']) )--}}
-
+                        <table>
                             <thead>
-                            <tr id="heading"><th colspan="6"> Indemand Details</th></tr>
+                                <tr id="heading"><th colspan="6"> Indemand Details</th></tr>
 
-                            <tr>
-                                <th> S.no</th>
-                                <th>Product Name</th>
-                                <th>Source</th>
-                                <th>Rate</th>
-                                <th>Date</th>
-                                <th>Location</th>
-                            </tr>
+                                <tr>
+                                    <th> S.no</th>
+                                    <th>Product Name</th>
+                                    <th>Source</th>
+                                    <th>Rate</th>
+                                    <th>Date</th>
+                                    <th>Location</th>
+                                </tr>
                             </thead>
+                            <tbody>
                             @forelse($value['indemand'] as $key=> $i)
 
                                 <tr>
@@ -116,11 +119,13 @@
                             @empty
 
                             @endforelse
-{{--                        @endif--}}
 
-            <tr><td colspan="6">&nbsp;</td></tr>
+                             <tr><td colspan="6">&nbsp;</td></tr>
+                            </tbody>
+                        </table>
+        <table>
             <thead>
-            <tr id="heading"><th colspan="=4"> Meeting Details</th></tr>
+            <tr id="heading"><th colspan="5"> Meeting Details</th></tr>
 
             <tr>
                 <th>S.no</th>
@@ -130,6 +135,7 @@
                 <th>note</th>
             </tr>
             </thead>
+            <tbody>
             @forelse($value['list'] as $key=> $l)
 
                 <tr>
@@ -143,6 +149,7 @@
             @empty
 
             @endforelse
+            </tbody>
         </table>
 
 </body>
