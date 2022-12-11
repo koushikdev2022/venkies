@@ -37,27 +37,27 @@
 
 {{--                    @if(is_null($value['retailer']))--}}
 
-                <thead>
-                <tr id="heading">
-                    <th colspan="4"> Retailer Details</th>
-                </tr>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Mobile</th>
-                    <th>Address</th>
-                </tr>
-                </thead>
-                @forelse($value['retailer'] as $r)
-                    <tr>
-                        <td>{{ $r->name??'' }}</td>
-                        <td>{{ $r->email?? '' }}</td>
-                        <td>{{ $r->phone?? '' }}</td>
-                        <td>{{ $r->address?? '' }}</td>
-                    </tr>
-                @empty
+{{--                <thead>--}}
+{{--                <tr id="heading">--}}
+{{--                    <th colspan="4"> Retailer Details</th>--}}
+{{--                </tr>--}}
+{{--                <tr>--}}
+{{--                    <th>Name</th>--}}
+{{--                    <th>Email</th>--}}
+{{--                    <th>Mobile</th>--}}
+{{--                    <th>Address</th>--}}
+{{--                </tr>--}}
+{{--                </thead>--}}
+{{--                @forelse($value['retailer'] as $r)--}}
+{{--                    <tr>--}}
+{{--                        <td>{{ $r->name??'' }}</td>--}}
+{{--                        <td>{{ $r->email?? '' }}</td>--}}
+{{--                        <td>{{ $r->phone?? '' }}</td>--}}
+{{--                        <td>{{ $r->address?? '' }}</td>--}}
+{{--                    </tr>--}}
+{{--                @empty--}}
 
-                @endforelse
+{{--                @endforelse--}}
 
 {{--            @endif--}}
 
@@ -66,14 +66,16 @@
                 <thead>
                 <tr id="heading" ><th colspan="4"> Order Details</th></tr>
                 <tr>
+                    <td>S.no</td>
                     <th>User Name</th>
                     <th>Retailer Name</th>
                     <th>Product Name</th>
                     <th>Quantity</th>
                 </tr>
                 </thead>
-                @forelse($value['order'] as $o)
+                @forelse($value['order'] as $key=> $o)
                     <tr>
+                        <td>{{ $key+1 }}</td>
                         <td>{{ $o->cart_user->name?? '' }}</td>
                         <td>{{ $o->get_retailer->name?? '' }}</td>
                         <td>{{ $o->products->name?? '' }}</td>
@@ -82,29 +84,32 @@
                     @empty
 
                 @endforelse
+            <tr> <td colspan=5>&nbsp;</td></tr>
 
 {{--            @endif--}}
 
 {{--                    @if(!is_null($value['indemand']) )--}}
 
                             <thead>
-                            <tr id="heading"><th colspan="4"> Indemand Details</th></tr>
+                            <tr id="heading"><th colspan="6"> Indemand Details</th></tr>
 
                             <tr>
+                                <th> S.no</th>
                                 <th>Product Name</th>
                                 <th>Source</th>
                                 <th>Rate</th>
-                                <th>Trend</th>
-                                <th>Address</th>
+                                <th>Date</th>
+                                <th>Location</th>
                             </tr>
                             </thead>
-                            @forelse($value['indemand'] as $i)
+                            @forelse($value['indemand'] as $key=> $i)
 
                                 <tr>
+                                    <td>{{ $key+1 }}</td>
                                     <td>{{ $i->product_name ?? '' }}</td>
                                     <td>{{ $i->source_of_information ?? '' }}</td>
                                     <td>{{ $i->market_rate ?? '' }}</td>
-                                    <td>{{ $i->market_trend ?? '' }}</td>
+                                    <td>{{ date('d-M-Y',strtotime($i->created_at)) ?? 'N/A' }}</td>
                                     <td>{{ $i->address ?? 'N/A' }}</td>
                                 </tr>
 
@@ -113,20 +118,22 @@
                             @endforelse
 {{--                        @endif--}}
 
-            <tr><td colspan="4">&nbsp;</td></tr>
+            <tr><td colspan="6">&nbsp;</td></tr>
             <thead>
             <tr id="heading"><th colspan="=4"> Meeting Details</th></tr>
 
             <tr>
+                <th>S.no</th>
                 <th>Retailer Name</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>note</th>
             </tr>
             </thead>
-            @forelse($value['list'] as $l)
+            @forelse($value['list'] as $key=> $l)
 
                 <tr>
+                    <td>{{ $key+1 }}</td>
                     <td>{{ $l->get_retailer->name ?? '' }}</td>
                     <td>{{ date('d-M-Y',strtotime($l->date)) ?? '' }}</td>
                     <td>{{  $l->time?? '' }}</td>
