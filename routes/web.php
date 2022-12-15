@@ -34,4 +34,5 @@ Route::resource('location',\App\Http\Controllers\LocationController::class);
 Route::resource('dashboard',\App\Http\Controllers\DashboardController::class);
 Route::resource('cart',\App\Http\Controllers\CartController::class);
 Route::resource('leave',\App\Http\Controllers\LeaveController::class);
+Route::resource('support',\App\Http\Controllers\SupportController::class);
 
