@@ -130,7 +130,7 @@ class AuthController extends Controller
 
    }
 
-   public function send_report($mail_id,$cc,$bcc){
+   public function send_report($mail_id,$cc=null,$bcc=null){
        $data= User::where('id',auth()->id())->first();
        if($data['email']==''||$data['email']=='null'){
            return $this->ErrorResponse(400,"You do not have register email id ..!");
