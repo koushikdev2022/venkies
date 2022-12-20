@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class SupportController extends Controller
 {
     public function get_mails(){
-        $mails= Support::latest()->get('email');
+        $mails= Support::latest()->get();
         return $this->SuccessResponse(200,'Data fetch successfully ..!',$mails);
     }
 }

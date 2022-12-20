@@ -130,7 +130,7 @@ class AuthController extends Controller
 
    }
 
-   public function send_report($mail_id){
+   public function send_report($mail_id,$cc,$bcc){
        $data= User::where('id',auth()->id())->first();
        if($data['email']==''||$data['email']=='null'){
            return $this->ErrorResponse(400,"You do not have register email id ..!");
@@ -155,9 +155,12 @@ class AuthController extends Controller
            'retailer'=>$retailer
        );
 
-       foreach (explode(',',$value) as $mail){
-           Mail::to($mail)->send(new Report($value));
-       }
+
+           Mail::to($mail_id)
+               ->cc($cc)
+               ->bcc($bcc)
+               ->send(new Report($value));
+
 
 
 
