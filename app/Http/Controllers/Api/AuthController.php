@@ -130,7 +130,15 @@ class AuthController extends Controller
 
    }
 
-   public function send_report($mail_id,$cc=null,$bcc=null){
+   public function send_report(Request $request){
+       $validate= Validator::make($request->all(),[
+           'mail_id'=> 'required',
+       ]);
+
+       if($validate->fails()){
+           return $this->ErrorResponse(400,$validate->errors());
+       }
+
        $data= User::where('id',auth()->id())->first();
        if($data['email']==''||$data['email']=='null'){
            return $this->ErrorResponse(400,"You do not have register email id ..!");
@@ -156,9 +164,9 @@ class AuthController extends Controller
        );
 
 
-           Mail::to($mail_id)
-               ->cc($cc)
-               ->bcc($bcc)
+           Mail::to($request->mail_id)
+               ->cc($request->cc)
+               ->bcc($request->bcc)
                ->send(new Report($value));
 
 
