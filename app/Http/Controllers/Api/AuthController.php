@@ -162,7 +162,7 @@ class AuthController extends Controller
            'leave' =>$leave,
            'retailer'=>$retailer
        );
-
+            dd($request->cc,$request->bcc);
 
            Mail::to($request->mail_id)
                ->cc($request->cc)
