@@ -56,4 +56,10 @@ class InDemandController extends Controller
         }
         return $this->SuccessResponse(200,'Data updated successfully ...!',  $demand);
     }
+
+    public function single_demand(){
+        $indemands=InDemandProduct::select('product_name')->groupBy('product_name')->get();
+        return $this->SuccessResponse(200,'Data fetch successfully ..!',$indemands);
+    }
+
 }

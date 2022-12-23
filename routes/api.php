@@ -33,6 +33,7 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('product/list/{id?}',[\App\Http\Controllers\Api\ProductController::class,'product_list']);
     Route::get('indemand/list',[\App\Http\Controllers\Api\InDemandController::class,'indemand_list']);
     Route::post('indemand/add',[\App\Http\Controllers\Api\InDemandController::class,'add_product']);
+    Route::get('indemand/single',[\App\Http\Controllers\Api\InDemandController::class,'single_demand']);
     Route::post('in-demand/update/{id}',[\App\Http\Controllers\Api\InDemandController::class,'update_indemand']);
     Route::get('meeting/list',[\App\Http\Controllers\Api\MeetingController::class,'meeting_list']);
     Route::get('meeting-list/{id}',[\App\Http\Controllers\Api\MeetingController::class,'meeting_details']);
