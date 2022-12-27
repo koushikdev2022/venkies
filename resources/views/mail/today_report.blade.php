@@ -92,6 +92,7 @@
                 <th>Source</th>
                 <th>Rate</th>
                 <th>Date</th>
+                <th>Note</th>
                 <th>Location</th>
             </tr>
             </thead>
@@ -104,6 +105,7 @@
                     <td>{{ $i->source_of_information ?? '' }}</td>
                     <td>{{ $i->market_rate ?? '' }}</td>
                     <td>{{ date('d-M-Y',strtotime($i->created_at)) ?? 'N/A' }}</td>
+                    <td>{{ $i->note ?? 'N/A' }}</td>
                     <td>{{ $i->address ?? 'N/A' }}</td>
                 </tr>
 
