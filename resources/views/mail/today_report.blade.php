@@ -24,7 +24,7 @@
         }
 
         .heading {
-            background-color: rgb(252, 8, 8);
+            background-color: #A9A9A9;
             color: white;
             padding: 10px;
             font-weight: bold;
