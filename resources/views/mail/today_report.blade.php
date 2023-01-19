@@ -24,7 +24,7 @@
         }
 
         .heading {
-            background-color: #808080;
+            background-color: black;
             color: white;
             padding: 10px;
             font-weight: bold;
@@ -41,7 +41,7 @@
         }
 
         thead>tr>th {
-            background-color: #C0C0C0 !important;
+            background-color: black !important;
             color: white;
         }
     </style>
