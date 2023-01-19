@@ -24,7 +24,7 @@
         }
 
         .heading {
-            background-color: #A9A9A9;
+            background-color: #808080;
             color: white;
             padding: 10px;
             font-weight: bold;
@@ -41,7 +41,7 @@
         }
 
         thead>tr>th {
-            background-color: black !important;
+            background-color: #C0C0C0 !important;
             color: white;
         }
     </style>
@@ -80,6 +80,38 @@
             </tbody>
         </table>
     </div>
+
+    <div style="margin-bottom:10px">
+        <div class="heading">
+            Meeting Details
+        </div>
+        <table class="customers">
+            <thead>
+            <tr>
+                <th width="70">Sno.</th>
+                <th>Retailer Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>note</th>
+            </tr>
+            </thead>
+            <tbody>
+            @forelse($value['list'] as $key=> $l)
+
+                <tr>
+                    <td>{{ $key+1 }}</td>
+                    <td>{{ $l->get_retailer->name ?? '' }}</td>
+                    <td>{{ date('d-M-Y',strtotime($l->date)) ?? '' }}</td>
+                    <td>{{ $l->time?? '' }}</td>
+                    <td>{{ $l->note ?? '' }}</td>
+                </tr>
+
+            @empty
+
+            @endforelse
+            </tbody>
+        </table>
+    </div>
     <div style="margin-bottom:10px">
         <div class="heading">
             Indemand Product
@@ -107,37 +139,6 @@
                     <td>{{ date('d-M-Y',strtotime($i->created_at)) ?? 'N/A' }}</td>
                     <td>{{ $i->note ?? 'N/A' }}</td>
                     <td>{{ $i->address ?? 'N/A' }}</td>
-                </tr>
-
-            @empty
-
-            @endforelse
-            </tbody>
-        </table>
-    </div>
-    <div style="margin-bottom:10px">
-        <div class="heading">
-            Meeting Details
-        </div>
-        <table class="customers">
-            <thead>
-            <tr>
-                <th width="70">Sno.</th>
-                <th>Retailer Name</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>note</th>
-            </tr>
-            </thead>
-            <tbody>
-            @forelse($value['list'] as $key=> $l)
-
-                <tr>
-                    <td>{{ $key+1 }}</td>
-                    <td>{{ $l->get_retailer->name ?? '' }}</td>
-                    <td>{{ date('d-M-Y',strtotime($l->date)) ?? '' }}</td>
-                    <td>{{ $l->time?? '' }}</td>
-                    <td>{{ $l->note ?? '' }}</td>
                 </tr>
 
             @empty
