@@ -91,7 +91,6 @@
                 <th width="70">Sno.</th>
                 <th>Retailer Name</th>
                 <th>Date</th>
-                <th>Time</th>
                 <th>note</th>
             </tr>
             </thead>
@@ -101,7 +100,6 @@
                 <tr>
                     <td>{{ $key+1 }}</td>
                     <td>{{ $l->get_retailer->name ?? '' }}</td>
-                    <td>{{ date('d-M-Y',strtotime($l->date)) ?? '' }}</td>
                     <td>{{ $l->time?? '' }}</td>
                     <td>{{ $l->note ?? '' }}</td>
                 </tr>
