@@ -88,9 +88,9 @@
         <table class="customers">
             <thead>
             <tr>
-                <th width="70">Sno.</th>
+                <th width="40">Sno.</th>
                 <th>Retailer Name</th>
-                <th>Date</th>
+{{--                <th>Date</th>--}}
                 <th>note</th>
             </tr>
             </thead>
@@ -100,7 +100,7 @@
                 <tr>
                     <td>{{ $key+1 }}</td>
                     <td>{{ $l->get_retailer->name ?? '' }}</td>
-                    <td>{{ $l->time?? '' }}</td>
+{{--                    <td>{{ $l->time?? '' }}</td>--}}
                     <td>{{ $l->note ?? '' }}</td>
                 </tr>
 
