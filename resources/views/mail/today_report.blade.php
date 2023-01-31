@@ -57,7 +57,7 @@
         <table class="customers">
             <thead>
             <tr>
-                <th width="70">Sno.</th>
+                <th width="30">Sno.</th>
                 <th>User Name</th>
                 <th>Retailer Name</th>
                 <th>Product Name</th>
@@ -88,7 +88,7 @@
         <table class="customers">
             <thead>
             <tr>
-                <th width="40">Sno.</th>
+                <th width="30">Sno.</th>
                 <th>Retailer Name</th>
 {{--                <th>Date</th>--}}
                 <th>note</th>
@@ -117,7 +117,7 @@
         <table class="customers">
             <thead>
             <tr>
-                <th width="70">Sno.</th>
+                <th width="30">Sno.</th>
                 <th>Product Name</th>
                 <th>Source</th>
                 <th>Rate</th>
