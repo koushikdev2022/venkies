@@ -89,9 +89,9 @@
             <thead>
             <tr>
                 <th width="30">Sno.</th>
-                <th>Retailer Name</th>
+                <th width="150px">Retailer Name</th>
 {{--                <th>Date</th>--}}
-                <th>note</th>
+                <th>Notes</th>
             </tr>
             </thead>
             <tbody>
