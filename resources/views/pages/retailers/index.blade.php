@@ -40,6 +40,7 @@
                                 <th>User Name</th>
                                 <th>Name</th>
                                 <th>Mobile</th>
+                                <th>Firm Capacity</th>
                                 <th>Email</th>
                                 <th>City</th>
                                 <th>Pin Code</th>
@@ -49,6 +50,7 @@
                                 <th>Pan</th>
                                 <th>Gst</th>
                                 <th>Aadhar</th>
+                                <th>Business Type</th>
                                 <th>Note</th>
                                 <th>Joining Date</th>
                                 <th width="120px">Action</th>
@@ -61,6 +63,7 @@
                                     <td>{{$user->get_user->name ?? ''}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->mobile1}}</td>
+                                    <td>{{$user->mobile2}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->city}}</td>
                                     <td>{{$user->pin_code}}</td>
@@ -70,6 +73,7 @@
                                     <td>{{$user->pan}}</td>
                                     <td>{{$user->gst}}</td>
                                     <td>{{$user->aadhar}}</td>
+                                    <td>{{$user->business_type}}</td>
                                     <td>{{$user->description}}</td>
                                     <td>{{date('d-M-Y',strtotime($user->created_at))}}</td>
 
