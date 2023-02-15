@@ -152,6 +152,7 @@ class AuthController extends Controller
            unset($rel['get_retailer']);
            return $rel;
        });
+       dd($order);
        $retailer = Retailer::where('user_id',auth()->id())->whereDate('created_at', '=', Carbon::today())->get();
        $leave = Leave::where('user_id',auth()->id())->get();
        $indemand= InDemandProduct::where('user_id',auth()->id())->whereDate('created_at', '=', Carbon::today())->get();

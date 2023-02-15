@@ -11,14 +11,14 @@ class Cart extends Model
     protected $guarded=['id'];
 
     public function products(){
-        return $this->belongsTo(Product::class,'product');
+        return $this->belongsToMany(Product::class,'product');
     }
 
     public function get_retailer(){
         return $this->belongsTo(Retailer::class,'retailer');
     }
 
-public function cart_user(){
-        return $this->belongsTo(User::class,'user_id');
-}
+    public function cart_user(){
+            return $this->belongsTo(User::class,'user_id');
+    }
 }
