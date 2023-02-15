@@ -66,6 +66,7 @@
             </thead>
             <tbody>
             @forelse($value['order'] as $key=> $o)
+
                 <tr>
                     <td>{{ $key+1 }}</td>
                     <td>{{ $o->cart_user->name?? '' }}</td>
