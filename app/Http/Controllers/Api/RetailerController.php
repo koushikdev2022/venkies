@@ -28,6 +28,7 @@ class RetailerController extends Controller
             'pan'=>'required',
             'gst'=>'required',
             'aadhar'=>'required'
+
         ]);
         if($validate->fails()){
             return $this->ErrorResponse(400,$validate->messages());
