@@ -147,12 +147,8 @@ class AuthController extends Controller
            return $this->ErrorResponse(400,"Report already send to admin ..!");
        }
        $list = Metting::with('get_retailer','user')->where([ 'date' => date('Y-m-d',strtotime(Carbon::now()))  , 'user_id' =>auth()->id()])->get();
-       $order= Cart::with('products.media')->distinct('retailer')->where(['user_id'=>auth()->id()])->whereDate('created_at', '=', Carbon::today())->get()->map(function($rel){
-           $rel->retailer_name= $rel->get_retailer->name??'';
-           unset($rel['get_retailer']);
-           return $rel;
-       });
-        dd($order);
+       $order= Cart::select("*")->with('products')->where(['user_id'=>auth()->id()])->whereDate('created_at', '=', Carbon::today())->get()->groupBy(['retailer']);
+
        $retailer = Retailer::where('user_id',auth()->id())->whereDate('created_at', '=', Carbon::today())->get();
        $leave = Leave::where('user_id',auth()->id())->get();
        $indemand= InDemandProduct::where('user_id',auth()->id())->whereDate('created_at', '=', Carbon::today())->get();
@@ -164,7 +160,7 @@ class AuthController extends Controller
            'retailer'=>$retailer
        );
 
-
+//       return view('mail.today_report',compact('value'));
            Mail::to($request->mail_id)
                ->cc($request->cc)
                ->bcc($request->bcc)
