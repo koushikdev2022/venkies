@@ -61,17 +61,24 @@
                 <th>User Name</th>
                 <th>Retailer Name</th>
                 <th>Product Name</th>
-                <th>Quantity</th>
+{{--                <th>Quantity</th>--}}
             </tr>
             </thead>
             <tbody>
-            @forelse($value['order'] as $key=> $o)
+            @forelse($value['order'] as $key => $o)
+                @php
+                $product = '';
+                $quantity = '';
+                foreach ($o as $option) {
+                    $product.= $option->products->name.' = '."Kg ".$option->quantity ."</br>";
+                }
+                @endphp
                 <tr>
                     <td>{{ $key+1 }}</td>
-                    <td>{{ $o->cart_user->name?? '' }}</td>
-                    <td>{{ $o->get_retailer->name?? '' }}</td>
-                    <td>{{ $o->products->name?? '' }}</td>
-                    <td>{{ $o->quantity?? '' }}</td>
+                    <td>{{ $o[0]->cart_user->name?? '' }}</td>
+                    <td>{{ $o[0]->get_retailer->name?? '' }}</td>
+                    <td>{!! $product !!}</td>
+{{--                    <td>{{ $o->quantity?? '' }}</td>--}}
                 </tr>
             @empty
 

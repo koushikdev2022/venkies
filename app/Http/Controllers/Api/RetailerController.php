@@ -15,19 +15,19 @@ class RetailerController extends Controller
     public function retailer_register(Request $request){
      $validate=   Validator::make($request->all(),[
             'name'=>'required',
-            'mobile1'=>'nullable',
-            'mobile2' =>'nullable',
-            'email' =>'nullable',
-            'address'=>'nullable',
-            'address1'=>'nullable',
-            'city'=>'nullable',
-            'pin_code'=>'nullable',
-            'state'=>'nullable',
-            'concern_person_name'=>'nullable',
-            'region'=>'nullable',
-            'pan'=>'nullable',
-            'gst'=>'nullable',
-            'aadhar'=>'nullable'
+            'mobile1'=>'required',
+            'mobile2' =>'required',
+            'email' =>'required',
+            'address'=>'required',
+            'address1'=>'required',
+            'city'=>'required',
+            'pin_code'=>'required',
+            'state'=>'required',
+            'concern_person_name'=>'required',
+            'region'=>'required',
+            'pan'=>'required',
+            'gst'=>'required',
+            'aadhar'=>'required'
         ]);
         if($validate->fails()){
             return $this->ErrorResponse(400,$validate->messages());
