@@ -147,7 +147,7 @@ class AuthController extends Controller
            return $this->ErrorResponse(400,"Report already send to admin ..!");
        }
        $list = Metting::with('get_retailer','user')->where([ 'date' => date('Y-m-d',strtotime(Carbon::now()))  , 'user_id' =>auth()->id()])->get();
-       $order= Cart::select("*")->with('products')->where(['user_id'=>auth()->id()])->get()->groupBy(['retailer']);
+       $order= Cart::select("*")->with('products')->where(['user_id'=>auth()->id()])->whereDate('created_at', '=', Carbon::today())->get()->groupBy(['retailer']);
 
        $retailer = Retailer::where('user_id',auth()->id())->whereDate('created_at', '=', Carbon::today())->get();
        $leave = Leave::where('user_id',auth()->id())->get();
